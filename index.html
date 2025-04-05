@@ -3,49 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Informazioni Ospiti</title>
+  <title>Informazioni per gli Ospiti</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stile.css">
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    header, footer { background-color: #f0f0f0; padding: 10px; text-align: center; }
-    nav a { margin: 0 10px; text-decoration: none; color: #333; }
-    section { margin-top: 20px; }
+    /* Imposta l'immagine di sfondo per header e footer */
+    header, footer {
+      background: url('Bergamo_skyline_SA17.png') no-repeat center center;
+      background-size: cover;
+      color: #fff; /* Per rendere il testo leggibile */
+    }
   </style>
 </head>
 <body>
+  <!-- Barra di navigazione nell'header -->
   <header>
-    <h1>Benvenuti nella nostra Casavacanza</h1>
+    <nav class="navbar navbar-expand-md navbar-dark">
+      <a class="navbar-brand" href="#">Casavacanza</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="#wifi">WiFi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#attrazioni">Attrazioni</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ristoranti">Ristoranti</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contatti">Contatti</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container text-center py-5">
+      <h1>Benvenuti nella nostra casavacanza!</h1>
+    </div>
   </header>
-  
-  <nav>
-    <a href="#wifi">Wifi</a>
-    <a href="#attrazioni">Attrazioni</a>
-    <a href="#ristoranti">Ristoranti</a>
-  </nav>
-  
-  <section id="wifi">
-    <h2>Connessione Wifi</h2>
-    <p>Nome rete: <strong>CasaVacanzaWiFi</strong></p>
-    <p>Password: <strong>password123</strong></p>
-  </section>
-  
-  <section id="attrazioni">
-    <h2>Da visitare</h2>
-    <ul>
-      <li><a href="https://www.example.com/luogo1" target="_blank">Luogo 1</a></li>
-      <li><a href="https://www.example.com/luogo2" target="_blank">Luogo 2</a></li>
-    </ul>
-  </section>
-  
-  <section id="ristoranti">
-    <h2>Dove Mangiare</h2>
-    <ul>
-      <li><a href="https://www.example.com/ristorante1" target="_blank">Ristorante 1</a></li>
-      <li><a href="https://www.example.com/ristorante2" target="_blank">Ristorante 2</a></li>
-    </ul>
-  </section>
-  
-  <footer>
-    <p>Contatti: info@casavacanza.it</p>
+
+  <!-- Sezioni del sito -->
+  <div class="container mt-4">
+    <section id="wifi">
+      <h2>WiFi e Connessione</h2>
+      <p>Dettagli sulla rete e password...</p>
+    </section>
+    
+    <section id="attrazioni" class="mt-4">
+      <h2>Attrazioni Locali</h2>
+      <p>Informazioni su luoghi da visitare...</p>
+    </section>
+    
+    <section id="ristoranti" class="mt-4">
+      <h2>Dove Mangiare</h2>
+      <p>Consigli su ristoranti e bar nelle vicinanze...</p>
+    </section>
+    
+    <section id="contatti" class="mt-4">
+      <h2>Contatti</h2>
+      <p>Informazioni per contattarci...</p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-4 py-4">
+    <div class="container text-center">
+      <p>Per ulteriori informazioni, contattaci!</p>
+    </div>
   </footer>
+
+  <!-- Script JS di Bootstrap -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
