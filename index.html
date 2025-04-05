@@ -18,10 +18,13 @@
       background: transparent;
       color: #333;
     }
-    /* Piccola personalizzazione per il select */
+    /* Personalizzazione per il select e forzatura dei font con supporto emoji */
     #languageSwitcher {
       width: auto;
       display: inline-block;
+    }
+    #languageSwitcher option {
+      font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
     }
   </style>
 </head>
@@ -35,10 +38,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ml-auto align-items-center">
-          <li class="nav-item"><a class="nav-link" href="#wifi" id="wifiTitleLink">WiFi</a></li>
-          <li class="nav-item"><a class="nav-link" href="#attrazioni" id="attrazioniTitleLink">Attrazioni</a></li>
-          <li class="nav-item"><a class="nav-link" href="#ristoranti" id="ristorantiTitleLink">Ristoranti</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contatti" id="contattiTitleLink">Contatti</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#wifi" id="wifiTitleLink">WiFi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#attrazioni" id="attrazioniTitleLink">Attrazioni</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#ristoranti" id="ristorantiTitleLink">Ristoranti</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contatti" id="contattiTitleLink">Contatti</a>
+          </li>
           <!-- Selettore lingua con bandiere e codici -->
           <li class="nav-item ml-2">
             <select id="languageSwitcher" class="form-control form-control-sm">
@@ -93,7 +104,7 @@
   
   <!-- Script per il cambio lingua -->
   <script>
-    // Oggetto contenente le traduzioni
+    // Oggetto contenente le traduzioni per ogni elemento
     const translations = {
       headerTitle: {
         it: "Benvenuti nella nostra casavacanza!",
@@ -159,6 +170,7 @@
 
     // Funzione per aggiornare i testi in base alla lingua selezionata
     function setLanguage(lang) {
+      console.log("Changing language to:", lang);
       document.getElementById("headerTitle").textContent = translations.headerTitle[lang];
       document.getElementById("wifiTitle").textContent = translations.wifiTitle[lang];
       document.getElementById("wifiContent").textContent = translations.wifiContent[lang];
@@ -173,4 +185,17 @@
       // Aggiorna anche i link della navbar
       document.getElementById("wifiTitleLink").textContent = translations.wifiTitle[lang];
       document.getElementById("attrazioniTitleLink").textContent = translations.attrazioniTitle[lang];
-      document.getElementById("ristorantiTitleLink").textContent = translations.ristorantiTitle[
+      document.getElementById("ristorantiTitleLink").textContent = translations.ristorantiTitle[lang];
+      document.getElementById("contattiTitleLink").textContent = translations.contattiTitle[lang];
+    }
+
+    // Gestione dell'evento sul selettore lingua
+    document.getElementById("languageSwitcher").addEventListener("change", function() {
+      setLanguage(this.value);
+    });
+
+    // Imposta la lingua di default (inglese)
+    setLanguage("en");
+  </script>
+</body>
+</html>
