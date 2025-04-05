@@ -6,17 +6,14 @@
   <title>Informazioni per gli Ospiti</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="stile.css">
   <style>
-    /* Imposta l'immagine di sfondo per l'intera pagina con un overlay sfumato */
+    /* Background dell'intera pagina con overlay sfumato */
     body {
-      background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('Bergamo_skyline_SA17.png') no-repeat center center fixed;
+      background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('sfondo.jpg') no-repeat center center fixed;
       background-size: cover;
       margin: 0;
       padding: 0;
     }
-    
-    /* Rimuove eventuali sfondi predefiniti da header e footer */
     header, footer {
       background: transparent;
       color: #333;
@@ -24,7 +21,7 @@
   </style>
 </head>
 <body>
-  <!-- Header con Navbar -->
+  <!-- Header con Navbar e selettore lingua -->
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Casavacanza</a>
@@ -33,45 +30,54 @@
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="#wifi">WiFi</a></li>
-          <li class="nav-item"><a class="nav-link" href="#attrazioni">Attrazioni</a></li>
-          <li class="nav-item"><a class="nav-link" href="#ristoranti">Ristoranti</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contatti">Contatti</a></li>
+          <li class="nav-item"><a class="nav-link" href="#wifi" id="wifiTitleLink">WiFi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#attrazioni" id="attrazioniTitleLink">Attrazioni</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ristoranti" id="ristorantiTitleLink">Ristoranti</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contatti" id="contattiTitleLink">Contatti</a></li>
+          <!-- Selettore lingua -->
+          <li class="nav-item">
+            <select id="languageSwitcher" class="form-control form-control-sm ml-2">
+              <option value="it">Italiano</option>
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="de">Deutsch</option>
+            </select>
+          </li>
         </ul>
       </div>
     </nav>
     <div class="container text-center py-5">
-      <h1>Benvenuti nella nostra casavacanza!</h1>
+      <h1 id="headerTitle">Benvenuti nella nostra casavacanza!</h1>
     </div>
   </header>
 
   <!-- Sezioni del sito -->
   <div class="container mt-4">
     <section id="wifi">
-      <h2>WiFi e Connessione</h2>
-      <p>Dettagli sulla rete e password...</p>
+      <h2 id="wifiTitle">WiFi e Connessione</h2>
+      <p id="wifiContent">Dettagli sulla rete e password...</p>
     </section>
     
     <section id="attrazioni" class="mt-4">
-      <h2>Attrazioni Locali</h2>
-      <p>Informazioni su luoghi da visitare...</p>
+      <h2 id="attrazioniTitle">Attrazioni Locali</h2>
+      <p id="attrazioniContent">Informazioni su luoghi da visitare...</p>
     </section>
     
     <section id="ristoranti" class="mt-4">
-      <h2>Dove Mangiare</h2>
-      <p>Consigli su ristoranti e bar nelle vicinanze...</p>
+      <h2 id="ristorantiTitle">Dove Mangiare</h2>
+      <p id="ristorantiContent">Consigli su ristoranti e bar nelle vicinanze...</p>
     </section>
     
     <section id="contatti" class="mt-4">
-      <h2>Contatti</h2>
-      <p>Informazioni per contattarci...</p>
+      <h2 id="contattiTitle">Contatti</h2>
+      <p id="contattiContent">Informazioni per contattarci...</p>
     </section>
   </div>
 
   <!-- Footer -->
   <footer class="mt-4 py-4">
     <div class="container text-center">
-      <p>Per ulteriori informazioni, contattaci!</p>
+      <p id="footerText">Per ulteriori informazioni, contattaci!</p>
     </div>
   </footer>
 
@@ -79,5 +85,100 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <!-- Script per il cambio lingua -->
+  <script>
+    // Oggetto contenente le traduzioni
+    const translations = {
+      headerTitle: {
+        it: "Benvenuti nella nostra casavacanza!",
+        en: "Welcome to our holiday home!",
+        es: "¡Bienvenidos a nuestra casa vacacional!",
+        de: "Willkommen in unserem Ferienhaus!"
+      },
+      wifiTitle: {
+        it: "WiFi e Connessione",
+        en: "WiFi and Connection",
+        es: "WiFi y Conexión",
+        de: "WLAN und Verbindung"
+      },
+      wifiContent: {
+        it: "Dettagli sulla rete e password...",
+        en: "Network details and password...",
+        es: "Detalles de la red y contraseña...",
+        de: "Netzwerkdetails und Passwort..."
+      },
+      attrazioniTitle: {
+        it: "Attrazioni Locali",
+        en: "Local Attractions",
+        es: "Atracciones Locales",
+        de: "Lokale Attraktionen"
+      },
+      attrazioniContent: {
+        it: "Informazioni su luoghi da visitare...",
+        en: "Information on places to visit...",
+        es: "Información sobre lugares para visitar...",
+        de: "Informationen zu sehenswerten Orten..."
+      },
+      ristorantiTitle: {
+        it: "Dove Mangiare",
+        en: "Where to Eat",
+        es: "Dónde Comer",
+        de: "Wo man essen kann"
+      },
+      ristorantiContent: {
+        it: "Consigli su ristoranti e bar nelle vicinanze...",
+        en: "Tips on restaurants and bars nearby...",
+        es: "Consejos sobre restaurantes y bares cercanos...",
+        de: "Tipps zu Restaurants und Bars in der Nähe..."
+      },
+      contattiTitle: {
+        it: "Contatti",
+        en: "Contact",
+        es: "Contactos",
+        de: "Kontakt"
+      },
+      contattiContent: {
+        it: "Informazioni per contattarci...",
+        en: "Contact details...",
+        es: "Detalles para contactarnos...",
+        de: "Kontaktinformationen..."
+      },
+      footerText: {
+        it: "Per ulteriori informazioni, contattaci!",
+        en: "For more information, contact us!",
+        es: "Para más información, contáctenos!",
+        de: "Für weitere Informationen kontaktieren Sie uns!"
+      }
+    };
+
+    // Funzione per aggiornare i testi in base alla lingua selezionata
+    function setLanguage(lang) {
+      document.getElementById("headerTitle").textContent = translations.headerTitle[lang];
+      document.getElementById("wifiTitle").textContent = translations.wifiTitle[lang];
+      document.getElementById("wifiContent").textContent = translations.wifiContent[lang];
+      document.getElementById("attrazioniTitle").textContent = translations.attrazioniTitle[lang];
+      document.getElementById("attrazioniContent").textContent = translations.attrazioniContent[lang];
+      document.getElementById("ristorantiTitle").textContent = translations.ristorantiTitle[lang];
+      document.getElementById("ristorantiContent").textContent = translations.ristorantiContent[lang];
+      document.getElementById("contattiTitle").textContent = translations.contattiTitle[lang];
+      document.getElementById("contattiContent").textContent = translations.contattiContent[lang];
+      document.getElementById("footerText").textContent = translations.footerText[lang];
+
+      // Se si desidera aggiornare anche i link della navbar
+      document.getElementById("wifiTitleLink").textContent = translations.wifiTitle[lang];
+      document.getElementById("attrazioniTitleLink").textContent = translations.attrazioniTitle[lang];
+      document.getElementById("ristorantiTitleLink").textContent = translations.ristorantiTitle[lang];
+      document.getElementById("contattiTitleLink").textContent = translations.contattiTitle[lang];
+    }
+
+    // Gestione dell'evento sul selettore lingua
+    document.getElementById("languageSwitcher").addEventListener("change", function() {
+      setLanguage(this.value);
+    });
+
+    // Imposta la lingua di default (italiano)
+    setLanguage("it");
+  </script>
 </body>
 </html>
