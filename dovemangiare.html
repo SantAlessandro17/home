@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dove Mangiare - Casavacanza</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('Bergamo_skyline_SA17.png') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background: transparent;
+      color: #333;
+    }
+    #languageSwitcher {
+      width: auto;
+      display: inline-block;
+    }
+    #languageSwitcher option {
+      font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a class="navbar-brand" href="index.html">Casavacanza</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ml-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="attrazioni.html">Attrazioni</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ristoranti.html">Dove Mangiare</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contatti</a>
+          </li>
+          <li class="nav-item ml-2">
+            <select id="languageSwitcher" class="form-control form-control-sm">
+              <option value="it">🇮🇹 IT</option>
+              <option value="en" selected>🇬🇧 EN</option>
+              <option value="es">🇪🇸 ES</option>
+              <option value="de">🇩🇪 DE</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container text-center py-5">
+      <h1 id="pageTitle">Where to Eat</h1>
+    </div>
+  </header>
+  <div class="container mt-4">
+    <section>
+      <p id="pageContent">
+        Find the best places to dine: from local trattorie to international cuisines, explore a variety of dining options.
+      </p>
+    </section>
+    <div class="mt-4">
+      <a href="index.html" class="btn btn-primary">Back to Home</a>
+    </div>
+  </div>
+  <footer class="mt-4 py-4">
+    <div class="container text-center">
+      <p id="footerText"><a href="mailto:santalessandro17@gmail.com">For more information, contact us!</a></p>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    const translations = {
+      pageTitle: {
+        it: "Dove Mangiare",
+        en: "Where to Eat",
+        es: "Dónde Comer",
+        de: "Wo man essen kann"
+      },
+      pageContent: {
+        it: "Scopri i migliori ristoranti e bar: dalle trattorie locali alle cucine internazionali, troverai una varietà di opzioni per mangiare.",
+        en: "Find the best places to dine: from local trattorie to international cuisines, explore a variety of dining options.",
+        es: "Encuentra los mejores lugares para comer: desde trattorias locales hasta cocinas internacionales, explora una variedad de opciones gastronómicas.",
+        de: "Entdecken Sie die besten Restaurants: from local trattorie to international cuisine, erleben Sie eine Vielfalt an Essensmöglichkeiten."
+      },
+      footerText: {
+        it: "<a href='mailto:santalessandro17@gmail.com'>Per ulteriori informazioni, contattaci!</a>",
+        en: "<a href='mailto:santalessandro17@gmail.com'>For more information, contact us!</a>",
+        es: "<a href='mailto:santalessandro17@gmail.com'>Para más información, contáctenos!</a>",
+        de: "<a href='mailto:santalessandro17@gmail.com'>Für weitere Informationen kontaktieren Sie uns!</a>"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.getElementById("pageTitle").textContent = translations.pageTitle[lang];
+      document.getElementById("pageContent").textContent = translations.pageContent[lang];
+      document.getElementById("footerText").innerHTML = translations.footerText[lang];
+    }
+
+    document.getElementById("languageSwitcher").addEventListener("change", function(){
+      setLanguage(this.value);
+    });
+
+    setLanguage("en");
+  </script>
+</body>
+</html>
