@@ -97,7 +97,9 @@
   <!-- Footer -->
   <footer class="mt-4 py-4">
     <div class="container text-center">
-      <p id="footerText">For more information, contact us!</p>
+      <p id="footerText">
+        <!-- Il contenuto verrà aggiornato tramite JS -->
+      </p>
     </div>
   </footer>
 
@@ -159,16 +161,16 @@
         de: "Kontakt"
       },
       contattiContent: {
-        it: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br>+39 3357009617<br>santalessandro17@gmail.com",
-        en: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italy<br>+39 3357009617<br>santalessandro17@gmail.com",
-        es: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br>+39 3357009617<br>santalessandro17@gmail.com",
-        de: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italien<br>+39 3357009617<br>santalessandro17@gmail.com"
+        it: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
+        en: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italy<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
+        es: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
+        de: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italien<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>"
       },
       footerText: {
-        it: "Per ulteriori informazioni, contattaci!",
-        en: "For more information, contact us!",
-        es: "Para más información, contáctenos!",
-        de: "Für weitere Informationen kontaktieren Sie uns!"
+        it: "<a href='mailto:santalessandro17@gmail.com'>Per ulteriori informazioni, contattaci!</a>",
+        en: "<a href='mailto:santalessandro17@gmail.com'>For more information, contact us!</a>",
+        es: "<a href='mailto:santalessandro17@gmail.com'>Para más información, contáctenos!</a>",
+        de: "<a href='mailto:santalessandro17@gmail.com'>Für weitere Informationen kontaktieren Sie uns!</a>"
       }
     };
 
@@ -177,7 +179,7 @@
       console.log("Changing language to:", lang);
       document.getElementById("headerTitle").textContent = translations.headerTitle[lang];
       document.getElementById("wifiTitle").textContent = translations.wifiTitle[lang];
-      // Usa innerHTML per mantenere i <br> nei contenuti
+      // Usa innerHTML per mantenere i <br> e i link cliccabili
       document.getElementById("wifiContent").innerHTML = translations.wifiContent[lang];
       document.getElementById("attrazioniTitle").textContent = translations.attrazioniTitle[lang];
       document.getElementById("attrazioniContent").textContent = translations.attrazioniContent[lang];
@@ -185,7 +187,7 @@
       document.getElementById("ristorantiContent").textContent = translations.ristorantiContent[lang];
       document.getElementById("contattiTitle").textContent = translations.contattiTitle[lang];
       document.getElementById("contattiContent").innerHTML = translations.contattiContent[lang];
-      document.getElementById("footerText").textContent = translations.footerText[lang];
+      document.getElementById("footerText").innerHTML = translations.footerText[lang];
 
       // Aggiorna anche i link della navbar
       document.getElementById("wifiTitleLink").textContent = translations.wifiTitle[lang];
