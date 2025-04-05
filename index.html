@@ -8,18 +8,25 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="stile.css">
   <style>
-    /* Imposta l'immagine di sfondo per header e footer */
-    header, footer {
-      background: url('Bergamo_skyline_SA17.png') no-repeat center center;
+    /* Imposta l'immagine di sfondo per l'intera pagina con un overlay sfumato */
+    body {
+      background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('sfondo.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #fff; /* Per rendere il testo leggibile */
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Rimuove eventuali sfondi predefiniti da header e footer */
+    header, footer {
+      background: transparent;
+      color: #333;
     }
   </style>
 </head>
 <body>
-  <!-- Barra di navigazione nell'header -->
+  <!-- Header con Navbar -->
   <header>
-    <nav class="navbar navbar-expand-md navbar-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Casavacanza</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navMenu">
         <span class="navbar-toggler-icon"></span>
