@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
   <style>
     /* Background dell'intera pagina con overlay sfumato */
     body {
-      background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('sfondo.jpg') no-repeat center center fixed;
+      background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('Bergamo_skyline_SA17.png') no-repeat center center fixed;
       background-size: cover;
       margin: 0;
       padding: 0;
@@ -17,6 +17,11 @@
     header, footer {
       background: transparent;
       color: #333;
+    }
+    /* Piccola personalizzazione per il select */
+    #languageSwitcher {
+      width: auto;
+      display: inline-block;
     }
   </style>
 </head>
@@ -29,55 +34,55 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto align-items-center">
           <li class="nav-item"><a class="nav-link" href="#wifi" id="wifiTitleLink">WiFi</a></li>
           <li class="nav-item"><a class="nav-link" href="#attrazioni" id="attrazioniTitleLink">Attrazioni</a></li>
           <li class="nav-item"><a class="nav-link" href="#ristoranti" id="ristorantiTitleLink">Ristoranti</a></li>
           <li class="nav-item"><a class="nav-link" href="#contatti" id="contattiTitleLink">Contatti</a></li>
-          <!-- Selettore lingua -->
-          <li class="nav-item">
-            <select id="languageSwitcher" class="form-control form-control-sm ml-2">
-              <option value="it">Italiano</option>
-              <option value="en">English</option>
-              <option value="es">Español</option>
-              <option value="de">Deutsch</option>
+          <!-- Selettore lingua con bandiere e codici -->
+          <li class="nav-item ml-2">
+            <select id="languageSwitcher" class="form-control form-control-sm">
+              <option value="it">🇮🇹 IT</option>
+              <option value="en" selected>🇬🇧 EN</option>
+              <option value="es">🇪🇸 ES</option>
+              <option value="de">🇩🇪 DE</option>
             </select>
           </li>
         </ul>
       </div>
     </nav>
     <div class="container text-center py-5">
-      <h1 id="headerTitle">Benvenuti nella nostra casavacanza!</h1>
+      <h1 id="headerTitle">Welcome to our holiday home!</h1>
     </div>
   </header>
 
   <!-- Sezioni del sito -->
   <div class="container mt-4">
     <section id="wifi">
-      <h2 id="wifiTitle">WiFi e Connessione</h2>
-      <p id="wifiContent">Dettagli sulla rete e password...</p>
+      <h2 id="wifiTitle">WiFi and Connection</h2>
+      <p id="wifiContent">Network details and password...</p>
     </section>
     
     <section id="attrazioni" class="mt-4">
-      <h2 id="attrazioniTitle">Attrazioni Locali</h2>
-      <p id="attrazioniContent">Informazioni su luoghi da visitare...</p>
+      <h2 id="attrazioniTitle">Local Attractions</h2>
+      <p id="attrazioniContent">Information on places to visit...</p>
     </section>
     
     <section id="ristoranti" class="mt-4">
-      <h2 id="ristorantiTitle">Dove Mangiare</h2>
-      <p id="ristorantiContent">Consigli su ristoranti e bar nelle vicinanze...</p>
+      <h2 id="ristorantiTitle">Where to Eat</h2>
+      <p id="ristorantiContent">Tips on restaurants and bars nearby...</p>
     </section>
     
     <section id="contatti" class="mt-4">
-      <h2 id="contattiTitle">Contatti</h2>
-      <p id="contattiContent">Informazioni per contattarci...</p>
+      <h2 id="contattiTitle">Contact</h2>
+      <p id="contattiContent">Contact details...</p>
     </section>
   </div>
 
   <!-- Footer -->
   <footer class="mt-4 py-4">
     <div class="container text-center">
-      <p id="footerText">Per ulteriori informazioni, contattaci!</p>
+      <p id="footerText">For more information, contact us!</p>
     </div>
   </footer>
 
@@ -165,20 +170,7 @@
       document.getElementById("contattiContent").textContent = translations.contattiContent[lang];
       document.getElementById("footerText").textContent = translations.footerText[lang];
 
-      // Se si desidera aggiornare anche i link della navbar
+      // Aggiorna anche i link della navbar
       document.getElementById("wifiTitleLink").textContent = translations.wifiTitle[lang];
       document.getElementById("attrazioniTitleLink").textContent = translations.attrazioniTitle[lang];
-      document.getElementById("ristorantiTitleLink").textContent = translations.ristorantiTitle[lang];
-      document.getElementById("contattiTitleLink").textContent = translations.contattiTitle[lang];
-    }
-
-    // Gestione dell'evento sul selettore lingua
-    document.getElementById("languageSwitcher").addEventListener("change", function() {
-      setLanguage(this.value);
-    });
-
-    // Imposta la lingua di default (italiano)
-    setLanguage("it");
-  </script>
-</body>
-</html>
+      document.getElementById("ristorantiTitleLink").textContent = translations.ristorantiTitle[
