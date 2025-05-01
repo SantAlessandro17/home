@@ -7,7 +7,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    /* Background dell'intera pagina con overlay sfumato */
+    /* Background e overlay */
     body {
       background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('Bergamo_skyline_SA17.png') no-repeat center center fixed;
       background-size: cover;
@@ -18,7 +18,7 @@
       background: transparent;
       color: #333;
     }
-    /* Personalizzazione per il select e forzatura dei font con supporto emoji */
+    /* Selettore lingua */
     #languageSwitcher {
       width: auto;
       display: inline-block;
@@ -26,59 +26,40 @@
     #languageSwitcher option {
       font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
     }
-    /* Wifi button style */
-      .wifi-btn {
-      background-color: #007bff; /* Azzurro */
-      color: #fff;               /* Testo bianco */
+
+    /* Bottoni WiFi */
+    .wifi-btn {
+      background-color: #007bff;
+      color: #fff;
       border: none;
-      border-radius: 50px;       /* Lati a semicerchio */
-      padding: 0.75rem 1.5rem;   /* Dimensione adeguata */
-      font-size: 1rem;
+      border-radius: 50px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       white-space: normal;
       text-align: center;
     }
     .wifi-btn-outline {
       background-color: transparent;
       color: #007bff;
-      border: 2px solid #007bff; /* Bordo azzurro */
+      border: 2px solid #007bff;
       border-radius: 50px;
       padding: 0.75rem 1.5rem;
       font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       white-space: normal;
       text-align: center;
     }
   </style>
-</head>  
+</head>
 <body>
-  <script>
-    // Quando il DOM è pronto, misura la larghezza del bottone infoBtn e applicala a entrambi
-    window.addEventListener('DOMContentLoaded', function() {
-      const showBtn = document.getElementById("showBtn");
-      const infoBtn = document.getElementById("infoBtn");
-      // Temporaneamente mostra infoBtn per misurare
-      infoBtn.style.display = 'inline-block';
-      const width = infoBtn.offsetWidth + 'px';
-      // Imposta larghezza fissa a entrambi i bottoni
-      showBtn.style.width = width;
-      infoBtn.style.width = width;
-      // Nascondi di nuovo infoBtn
-      infoBtn.style.display = 'none';
-    });
-    
-    // Funzione per alternare i bottoni
-    function toggleWiFi() {
-      const showBtn = document.getElementById("showBtn");
-      const infoBtn = document.getElementById("infoBtn");
-    
-      if (showBtn.style.display !== "none") {
-        showBtn.style.display = "none";
-        infoBtn.style.display = "inline-block";
-      } else {
-        infoBtn.style.display = "none";
-        showBtn.style.display = "inline-block";
-      }
-    }
-    </script>
   <!-- Header con Navbar e selettore lingua -->
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -91,7 +72,6 @@
           <li class="nav-item">
             <a class="nav-link" href="#wifi" id="wifiTitleLink">WiFi</a>
           </li>
-          <!-- Link alle pagine separate -->
           <li class="nav-item">
             <a class="nav-link" href="attrazioni.html" id="attrazioniTitleLink">Attrazioni</a>
           </li>
@@ -101,7 +81,6 @@
           <li class="nav-item">
             <a class="nav-link" href="#contatti" id="contattiTitleLink">Contatti</a>
           </li>
-          <!-- Selettore lingua -->
           <li class="nav-item ml-2">
             <select id="languageSwitcher" class="form-control form-control-sm">
               <option value="it">🇮🇹 IT</option>
@@ -118,9 +97,9 @@
     </div>
   </header>
 
-  <!-- Sezioni dell'index -->
+  <!-- Contenuti principali -->
   <div class="container mt-4">
-    <!-- Sezione WiFi nel <body> di index.html -->
+    <!-- Sezione WiFi con bottone toggle -->
     <section id="wifi">
       <h2 id="wifiTitle">WiFi and Connection</h2>
       <div>
@@ -130,20 +109,23 @@
         </button>
       </div>
     </section>
-    
+
+    <!-- Sezione Contatti -->
     <section id="contatti" class="mt-4">
       <h2 id="contattiTitle">Contact</h2>
       <p id="contattiContent">
-        <!-- Aggiornato tramite JS -->
+        Via Sant'Alessandro 17<br>Bergamo, 24122, Italy<br>
+        <a href="tel:+393357009617">+39 3357009617</a><br>
+        <a href="mailto:santalessandro17@gmail.com">santalessandro17@gmail.com</a>
       </p>
     </section>
   </div>
 
-  <!-- Footer con link cliccabile solo sulla parola "contattaci" -->
+  <!-- Footer -->
   <footer class="mt-4 py-4">
     <div class="container text-center">
       <p id="footerText">
-        <!-- Aggiornato tramite JS -->
+        For more information, <a href="mailto:santalessandro17@gmail.com">contact us</a>!
       </p>
     </div>
   </footer>
@@ -152,59 +134,36 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
+
   <!-- Script per il cambio lingua -->
   <script>
     const translations = {
-      headerTitle: {
-        it: "Benvenuti nella nostra casavacanza!",
-        en: "Welcome to our holiday home!",
-        es: "¡Bienvenidos a nuestra casa vacacional!",
-        de: "Willkommen in unserem Ferienhaus!"
-      },
-      wifiTitle: {
-        it: "WiFi e Connessione",
-        en: "WiFi and Connection",
-        es: "WiFi y Conexión",
-        de: "WLAN und Verbindung"
-      },
-      wifiContent: {
-        it: "ID: vodafone-santalessandro17<br>Password: Bell@trix1",
-        en: "Network ID: vodafone-santalessandro17<br>Password: Bell@trix1",
-        es: "ID de red: vodafone-santalessandro17<br>Contraseña: Bell@trix1",
-        de: "Netzwerk-ID: vodafone-santalessandro17<br>Passwort: Bell@trix1"
-      },
-      contattiTitle: {
-        it: "Contatti",
-        en: "Contact",
-        es: "Contactos",
-        de: "Kontakt"
-      },
-      contattiContent: {
-        it: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
-        en: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italy<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
-        es: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
-        de: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italien<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>"
-      },
-      footerText: {
-        it: "Per ulteriori informazioni, <a href='mailto:santalessandro17@gmail.com'>contattaci</a>!",
-        en: "For more information, <a href='mailto:santalessandro17@gmail.com'>contact us</a>!",
-        es: "Para más información, <a href='mailto:santalessandro17@gmail.com'>contáctenos</a>!",
-        de: "Für weitere Informationen, <a href='mailto:santalessandro17@gmail.com'>kontaktieren Sie uns</a>!"
-      }
+      headerTitle: { it: "Benvenuti nella nostra casavacanza!", en: "Welcome to our holiday home!", es: "¡Bienvenidos a nuestra casa vacacional!", de: "Willkommen in unserem Ferienhaus!" },
+      wifiTitle:   { it: "WiFi e Connessione",            en: "WiFi and Connection",             es: "WiFi y Conexión",                  de: "WLAN und Verbindung" },
+      contattiTitle: { it: "Contatti",                   en: "Contact",                         es: "Contactos",                        de: "Kontakt" },
+      contattiContent: { it: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
+                        en: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italy<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
+                        es: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
+                        de: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italien<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>" },
+      footerText: { it: "Per ulteriori informazioni, <a href='mailto:santalessandro17@gmail.com'>contattaci</a>!",
+                    en: "For more information, <a href='mailto:santalessandro17@gmail.com'>contact us</a>!",
+                    es: "Para más información, <a href='mailto:santalessandro17@gmail.com'>contáctenos</a>!",
+                    de: "Für weitere Informationen, <a href='mailto:santalessandro17@gmail.com'>kontaktieren Sie uns</a>!" }
     };
 
     function setLanguage(lang) {
-      document.getElementById("headerTitle").textContent = translations.headerTitle[lang];
-      document.getElementById("wifiTitle").textContent = translations.wifiTitle[lang];
-      document.getElementById("wifiContent").innerHTML = translations.wifiContent[lang];
+      document.getElementById("headerTitle").textContent    = translations.headerTitle[lang];
+      document.getElementById("wifiTitle").textContent      = translations.wifiTitle[lang];
       document.getElementById("contattiTitle").textContent = translations.contattiTitle[lang];
-      document.getElementById("contattiContent").innerHTML = translations.contattiContent[lang];
-      document.getElementById("footerText").innerHTML = translations.footerText[lang];
+      document.getElementById("contattiContent").innerHTML  = translations.contattiContent[lang];
+      document.getElementById("footerText").innerHTML      = translations.footerText[lang];
 
-      // Aggiorna anche i link della navbar (opzionale)
-      document.getElementById("wifiTitleLink").textContent = translations.wifiTitle[lang];
-      document.getElementById("contattiTitleLink").textContent = translations.contattiTitle[lang];
+      // Aggiorna nav links
+      document.getElementById("wifiTitleLink").textContent      = translations.wifiTitle[lang];
+      document.getElementById("contattiTitleLink").textContent  = translations.contattiTitle[lang];
+
+      // Aggiorna testo del bottone Show
+      updateShowBtnText(lang);
     }
 
     document.getElementById("languageSwitcher").addEventListener("change", function(){
@@ -212,6 +171,44 @@
     });
 
     setLanguage("en");
+  </script>
+
+  <!-- Script per toggle WiFi e traduzione bottone -->
+  <script>
+    const showBtnTranslations = { it: 'Mostra', en: 'Show', es: 'Mostrar', de: 'Anzeigen' };
+    function updateShowBtnText(lang) {
+      const showBtn = document.getElementById('showBtn');
+      showBtn.textContent = showBtnTranslations[lang] || showBtnTranslations['en'];
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      const showBtn = document.getElementById("showBtn");
+      const infoBtn = document.getElementById("infoBtn");
+      const langSel = document.getElementById('languageSwitcher');
+
+      // Misura dimensioni di infoBtn
+      infoBtn.style.display = 'flex';
+      const width = infoBtn.offsetWidth + 'px';
+      const height = infoBtn.offsetHeight + 'px';
+      [showBtn, infoBtn].forEach(btn => { btn.style.width = width; btn.style.height = height; });
+      infoBtn.style.display = 'none';
+
+      // Imposta testo iniziale
+      updateShowBtnText(langSel.value);
+      langSel.addEventListener('change', function() { updateShowBtnText(this.value); });
+    });
+
+    function toggleWiFi() {
+      const showBtn = document.getElementById("showBtn");
+      const infoBtn = document.getElementById("infoBtn");
+      if (showBtn.style.display !== "none") {
+        showBtn.style.display = "none";
+        infoBtn.style.display = "flex";
+      } else {
+        infoBtn.style.display = "none";
+        showBtn.style.display = "flex";
+      }
+    }
   </script>
 </body>
 </html>
