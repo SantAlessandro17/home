@@ -26,9 +26,59 @@
     #languageSwitcher option {
       font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', sans-serif;
     }
+    /* Wifi button style */
+      .wifi-btn {
+      background-color: #007bff; /* Azzurro */
+      color: #fff;               /* Testo bianco */
+      border: none;
+      border-radius: 50px;       /* Lati a semicerchio */
+      padding: 0.75rem 1.5rem;   /* Dimensione adeguata */
+      font-size: 1rem;
+      white-space: normal;
+      text-align: center;
+    }
+    .wifi-btn-outline {
+      background-color: transparent;
+      color: #007bff;
+      border: 2px solid #007bff; /* Bordo azzurro */
+      border-radius: 50px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      white-space: normal;
+      text-align: center;
+    }
   </style>
-</head>
+</head>  
 <body>
+  <script>
+    // Quando il DOM è pronto, misura la larghezza del bottone infoBtn e applicala a entrambi
+    window.addEventListener('DOMContentLoaded', function() {
+      const showBtn = document.getElementById("showBtn");
+      const infoBtn = document.getElementById("infoBtn");
+      // Temporaneamente mostra infoBtn per misurare
+      infoBtn.style.display = 'inline-block';
+      const width = infoBtn.offsetWidth + 'px';
+      // Imposta larghezza fissa a entrambi i bottoni
+      showBtn.style.width = width;
+      infoBtn.style.width = width;
+      // Nascondi di nuovo infoBtn
+      infoBtn.style.display = 'none';
+    });
+    
+    // Funzione per alternare i bottoni
+    function toggleWiFi() {
+      const showBtn = document.getElementById("showBtn");
+      const infoBtn = document.getElementById("infoBtn");
+    
+      if (showBtn.style.display !== "none") {
+        showBtn.style.display = "none";
+        infoBtn.style.display = "inline-block";
+      } else {
+        infoBtn.style.display = "none";
+        showBtn.style.display = "inline-block";
+      }
+    }
+    </script>
   <!-- Header con Navbar e selettore lingua -->
   <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -70,11 +120,15 @@
 
   <!-- Sezioni dell'index -->
   <div class="container mt-4">
+    <!-- Sezione WiFi nel <body> di index.html -->
     <section id="wifi">
       <h2 id="wifiTitle">WiFi and Connection</h2>
-      <p id="wifiContent">
-        <!-- Aggiornato tramite JS -->
-      </p>
+      <div>
+        <button id="showBtn" class="wifi-btn" onclick="toggleWiFi()">Mostra</button>
+        <button id="infoBtn" class="wifi-btn-outline" style="display:none;" onclick="toggleWiFi()">
+          Network ID: vodafone-santalessandro17<br>Password: Bell@trix1
+        </button>
+      </div>
     </section>
     
     <section id="contatti" class="mt-4">
