@@ -14,18 +14,10 @@
       margin: 0;
       padding: 0;
     }
-    header, footer {
-      background: transparent;
-      color: #333;
-    }
+    header, footer { background: transparent; color: #333; }
     /* Selettore lingua */
-    #languageSwitcher {
-      width: auto;
-      display: inline-block;
-    }
-    #languageSwitcher option {
-      font-family: 'Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji',sans-serif;
-    }
+    #languageSwitcher { width: auto; display: inline-block; }
+    #languageSwitcher option { font-family: 'Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji',sans-serif; }
     /* Bottoni WiFi */
     .wifi-btn {
       background-color: #007bff;
@@ -39,14 +31,9 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      white-space: normal;
       text-align: center;
     }
-    .wifi-btn:focus, .wifi-btn:active {
-      outline: none;
-      box-shadow: none;
-      border-color: #007bff;
-    }
+    .wifi-btn:focus, .wifi-btn:active { outline: none; box-shadow: none; border-color: #007bff; }
     .wifi-btn-outline {
       background-color: #fff;
       color: #007bff;
@@ -58,24 +45,12 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      white-space: normal;
       text-align: center;
     }
-    .wifi-btn-outline:focus, .wifi-btn-outline:active {
-      outline: none;
-      box-shadow: none;
-      border-color: #007bff;
-    }
+    .wifi-btn-outline:focus, .wifi-btn-outline:active { outline: none; box-shadow: none; border-color: #007bff; }
     /* Copy icon */
-    .copy-icon {
-      cursor: pointer;
-      font-size: 1rem;
-      margin-left: 0.5rem;
-      user-select: none;
-    }
-    .copy-icon:hover {
-      color: #0056b3;
-    }
+    .copy-icon { cursor: pointer; font-size: 1rem; margin-left: 0.5rem; user-select: none; }
+    .copy-icon:hover { color: #0056b3; }
   </style>
 </head>
 <body>
@@ -95,7 +70,7 @@
           <li class="nav-item ml-2">
             <select id="languageSwitcher" class="form-control form-control-sm">
               <option value="it">🇮🇹 IT</option>
-              <option value="en" selected>🇬🇧 EN</option>
+              <option value="en">🇬🇧 EN</option>
               <option value="es">🇪🇸 ES</option>
               <option value="de">🇩🇪 DE</option>
             </select>
@@ -104,7 +79,7 @@
       </div>
     </nav>
     <div class="container text-center py-5">
-      <h1 id="headerTitle">Welcome to our holiday home!</h1>
+      <h1 id="headerTitle"></h1>
     </div>
   </header>
 
@@ -112,36 +87,32 @@
   <div class="container mt-4">
     <!-- Sezione WiFi con bottone toggle -->
     <section id="wifi">
-      <h2 id="wifiTitle">WiFi and Connection</h2>
+      <h2 id="wifiTitle"></h2>
       <div>
-        <button id="showBtn" class="wifi-btn" onclick="toggleWiFi()">Mostra</button>
-        <button id="infoBtn" class="wifi-btn-outline" style="display:none;" onclick="toggleWiFi()">
-          ID: vodafone-santalessandro17<br>Password: Bell@trix1
-        </button>
+        <button id="showBtn" class="wifi-btn"></button>
+        <button id="infoBtn" class="wifi-btn-outline" style="display:none;"></button>
       </div>
     </section>
 
     <!-- Sezione Contatti con bottoni copia -->
     <section id="contatti" class="mt-4">
-      <h2 id="contattiTitle">Contact</h2>
+      <h2 id="contattiTitle"></h2>
       <p id="contattiContent">
-        Via Sant'Alessandro 17<br>Bergamo, 24122, Italy<br>
         <span>
-          <a href="tel:+393357009617">+39 3357009617</a>
+          <a href="tel:+393357009617" id="phoneLink"></a>
           <span id="phoneCopy" class="copy-icon" title="Copy phone">📋</span>
         </span><br>
         <span>
-          <a href="mailto:santalessandro17@gmail.com">santalessandro17@gmail.com</a>
+          <a href="mailto:santalessandro17@gmail.com" id="emailLink"></a>
           <span id="emailCopy" class="copy-icon" title="Copy email">📋</span>
         </span>
       </p>
-    </section>
   </div>
 
   <!-- Footer -->
   <footer class="mt-4 py-4">
     <div class="container text-center">
-      <p id="footerText">For more information, <a href="mailto:santalessandro17@gmail.com">contact us</a>!</p>
+      <p id="footerText"></p>
     </div>
   </footer>
 
@@ -150,73 +121,85 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <!-- Script per traduzioni e toggle WiFi e copia -->
+  <!-- Script per lingua persistente, traduzioni, toggle WiFi e copia -->
   <script>
-    const translations = {
-      headerTitle:    { it: "Benvenuti nella nostra casavacanza!", en: "Welcome to our holiday home!", es: "¡Bienvenidos a nuestra casa vacacional!", de: "Willkommen in unserem Ferienhaus!" },
-      wifiTitle:      { it: "WiFi e Connessione", en: "WiFi and Connection", es: "WiFi y Conexión", de: "WLAN und Verbindung" },
-      contattiTitle:  { it: "Contatti", en: "Contact", es: "Contactos", de: "Kontakt" },
-      contattiContent:{
-        it: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><span><a href='tel:+393357009617'>+39 3357009617</a><span id='phoneCopy' class='copy-icon'>📋</span></span><br><span><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a><span id='emailCopy' class='copy-icon'>📋</span></span>",
-        en: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italy<br><span><a href='tel:+393357009617'>+39 3357009617</a><span id='phoneCopy' class='copy-icon'>📋</span></span><br><span><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a><span id='emailCopy' class='copy-icon'>📋</span></span>",
-        es: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><span><a href='tel:+393357009617'>+39 3357009617</a><span id='phoneCopy' class='copy-icon'>📋</span></span><br><span><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a><span id='emailCopy' class='copy-icon'>📋</span></span>",
-        de: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italien<br><span><a href='tel:+393357009617'>+39 3357009617</a><span id='phoneCopy' class='copy-icon'>📋</span></span><br><span><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a><span id='emailCopy' class='copy-icon'>📋</span></span>"
-      },
-      footerText:     { it: "Per ulteriori informazioni, <a href='mailto:santalessandro17@gmail.com'>contattaci</a>!", en: "For more information, <a href='mailto:santalessandro17@gmail.com'>contact us</a>!", es: "Para más información, <a href='mailto:santalessandro17@gmail.com'>contáctenos</a>!", de: "Für weitere Informationen, <a href='mailto:santalessandro17@gmail.com'>kontaktieren Sie uns</a>!" },
-      showBtn:        { it: "Mostra", en: "Show", es: "Mostrar", de: "Anzeigen" }
-    };
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elementi DOM
+      const langSel    = document.getElementById('languageSwitcher');
+      const showBtn    = document.getElementById('showBtn');
+      const infoBtn    = document.getElementById('infoBtn');
+      const phoneLink  = document.getElementById('phoneLink');
+      const emailLink  = document.getElementById('emailLink');
+      const phoneCopy  = document.getElementById('phoneCopy');
+      const emailCopy  = document.getElementById('emailCopy');
 
-    function setLanguage(lang) {
-      document.getElementById("headerTitle").textContent    = translations.headerTitle[lang];
-      document.getElementById("wifiTitle").textContent      = translations.wifiTitle[lang];
-      document.getElementById("contattiTitle").textContent  = translations.contattiTitle[lang];
-      document.getElementById("contattiContent").innerHTML  = translations.contattiContent[lang];
-      document.getElementById("footerText").innerHTML      = translations.footerText[lang];
-      document.getElementById("showBtn").textContent       = translations.showBtn[lang];
-      document.getElementById("wifiTitleLink").textContent = translations.wifiTitle[lang];
-      document.getElementById("contattiTitleLink").textContent = translations.contattiTitle[lang];
-    }
+      // Traduzioni
+      const translations = {
+        headerTitle:    { it: 'Benvenuti nella nostra casavacanza!', en: 'Welcome to our holiday home!', es: '¡Bienvenidos a nuestra casa vacacional!', de: 'Willkommen in unserem Ferienhaus!' },
+        wifiTitle:      { it: 'WiFi e Connessione', en: 'WiFi and Connection', es: 'WiFi y Conexión', de: 'WLAN und Verbindung' },
+        showBtn:        { it: 'Mostra', en: 'Show', es: 'Mostrar', de: 'Anzeigen' },
+        infoBtn:        { it: 'ID: vodafone-santalessandro17<br>Password: Bell@trix1', en: 'ID: vodafone-santalessandro17<br>Password: Bell@trix1', es: 'ID: vodafone-santalessandro17<br>Contraseña: Bell@trix1', de: 'ID: vodafone-santalessandro17<br>Passwort: Bell@trix1' },
+        contattiTitle:  { it: 'Contatti', en: 'Contact', es: 'Contactos', de: 'Kontakt' },
+        phoneLink:      { it: '+39 3357009617', en: '+39 3357009617', es: '+39 3357009617', de: '+39 3357009617' },
+        emailLink:      { it: 'santalessandro17@gmail.com', en: 'santalessandro17@gmail.com', es: 'santalessandro17@gmail.com', de: 'santalessandro17@gmail.com' },
+        footerText:     { it: 'Per ulteriori informazioni, <a href="mailto:santalessandro17@gmail.com">contattaci</a>!', en: 'For more information, <a href="mailto:santalessandro17@gmail.com">contact us</a>!', es: 'Para más información, <a href="mailto:santalessandro17@gmail.com">contáctenos</a>!', de: 'Für weitere Informationen, <a href="mailto:santalessandro17@gmail.com">kontaktieren Sie uns</a>!' }
+      };
 
-    document.getElementById("languageSwitcher").addEventListener("change", function() {
-      setLanguage(this.value);
-    });
-    setLanguage(document.getElementById("languageSwitcher").value);
+      // Lettura lingua salvata
+      const savedLang = localStorage.getItem('selectedLang') || 'en';
+      langSel.value = savedLang;
 
-    // Toggle WiFi
-    function toggleWiFi() {
-      const showBtn = document.getElementById("showBtn");
-      const infoBtn = document.getElementById("infoBtn");
-      if (showBtn.style.display !== "none") {
-        showBtn.style.display = "none";
-        infoBtn.style.display = "flex";
-      } else {
-        infoBtn.style.display = "none";
-        showBtn.style.display = "flex";
+      // Funzione per aggiornare UI
+      function setLanguage(lang) {
+        document.getElementById('headerTitle').textContent    = translations.headerTitle[lang];
+        document.getElementById('wifiTitle').textContent      = translations.wifiTitle[lang];
+        showBtn.innerHTML                                   = translations.showBtn[lang];
+        infoBtn.innerHTML                                   = translations.infoBtn[lang];
+        document.getElementById('contattiTitle').textContent = translations.contattiTitle[lang];
+        phoneLink.textContent                               = translations.phoneLink[lang];
+        emailLink.textContent                               = translations.emailLink[lang];
+        document.getElementById('footerText').innerHTML      = translations.footerText[lang];
+        // Nav labels
+        document.getElementById('wifiTitleLink').textContent      = translations.wifiTitle[lang];
+        document.getElementById('attrazioniTitleLink').textContent = translations.attrazioniTitle?.[lang] || 'Attrazioni';
+        document.getElementById('ristorantiTitleLink').textContent = translations.ristorantiTitle?.[lang] || 'Dove Mangiare';
+        document.getElementById('contattiTitleLink').textContent  = translations.contattiTitle[lang];
       }
-    }
 
-    // Uniforma dimensioni bottoni WiFi
-    window.addEventListener('DOMContentLoaded', function() {
-      const showBtn = document.getElementById("showBtn");
-      const infoBtn = document.getElementById("infoBtn");
-      infoBtn.style.display = 'flex';
-      const width = infoBtn.offsetWidth + 'px';
-      const height = infoBtn.offsetHeight + 'px';
-      [showBtn, infoBtn].forEach(btn => {
-        btn.style.width = width;
-        btn.style.height = height;
+      // Inizializza lingua
+      setLanguage(savedLang);
+
+      // Salva lingua al cambio
+      langSel.addEventListener('change', () => {
+        const lang = langSel.value;
+        localStorage.setItem('selectedLang', lang);
+        setLanguage(lang);
       });
+
+      // Toggle WiFi
+      function toggleWiFi() {
+        if (showBtn.style.display !== 'none') {
+          showBtn.style.display = 'none';
+          infoBtn.style.display = 'flex';
+        } else {
+          infoBtn.style.display = 'none';
+          showBtn.style.display = 'flex';
+        }
+      }
+      showBtn.addEventListener('click', toggleWiFi);
+      infoBtn.addEventListener('click', toggleWiFi);
+
+      // Allinea dimensioni bottoni WiFi
+      infoBtn.style.display = 'flex';
+      const w = infoBtn.offsetWidth + 'px';
+      const h = infoBtn.offsetHeight + 'px';
+      [showBtn, infoBtn].forEach(b => { b.style.width = w; b.style.height = h; });
       infoBtn.style.display = 'none';
 
       // Copy functionality
-      document.getElementById('phoneCopy').addEventListener('click', function() {
-        const phone = document.querySelector('a[href^="tel:"]').textContent.trim();
-        navigator.clipboard.writeText(phone);
-      });
-      document.getElementById('emailCopy').addEventListener('click', function() {
-        const email = document.querySelector('a[href^="mailto:"]').textContent.trim();
-        navigator.clipboard.writeText(email);
-      });
+      phoneCopy.addEventListener('click', () => { navigator.clipboard.writeText(phoneLink.textContent); });
+      emailCopy.addEventListener('click', () => { navigator.clipboard.writeText(emailLink.textContent); });
+
     });
   </script>
 </body>
