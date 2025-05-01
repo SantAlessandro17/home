@@ -43,8 +43,14 @@
       white-space: normal;
       text-align: center;
     }
+    .wifi-btn:focus, .wifi-btn:active {
+      outline: none;
+      box-shadow: none;
+      border-color: #007bff;
+    }
+
     .wifi-btn-outline {
-      background-color: transparent;
+      background-color: #fff;
       color: #007bff;
       border: 2px solid #007bff;
       border-radius: 50px;
@@ -56,6 +62,11 @@
       flex-direction: column;
       white-space: normal;
       text-align: center;
+    }
+    .wifi-btn-outline:focus, .wifi-btn-outline:active {
+      outline: none;
+      box-shadow: none;
+      border-color: #007bff;
     }
   </style>
 </head>
@@ -105,7 +116,7 @@
       <div>
         <button id="showBtn" class="wifi-btn" onclick="toggleWiFi()">Mostra</button>
         <button id="infoBtn" class="wifi-btn-outline" style="display:none;" onclick="toggleWiFi()">
-          Network ID: vodafone-santalessandro17<br>Password: Bell@trix1
+          ID: vodafone-santalessandro17<br>Password: Bell@trix1
         </button>
       </div>
     </section>
@@ -142,73 +153,5 @@
       wifiTitle:   { it: "WiFi e Connessione",            en: "WiFi and Connection",             es: "WiFi y Conexión",                  de: "WLAN und Verbindung" },
       contattiTitle: { it: "Contatti",                   en: "Contact",                         es: "Contactos",                        de: "Kontakt" },
       contattiContent: { it: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
-                        en: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italy<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
-                        es: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
-                        de: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italien<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>" },
-      footerText: { it: "Per ulteriori informazioni, <a href='mailto:santalessandro17@gmail.com'>contattaci</a>!",
-                    en: "For more information, <a href='mailto:santalessandro17@gmail.com'>contact us</a>!",
-                    es: "Para más información, <a href='mailto:santalessandro17@gmail.com'>contáctenos</a>!",
-                    de: "Für weitere Informationen, <a href='mailto:santalessandro17@gmail.com'>kontaktieren Sie uns</a>!" }
-    };
+                        en: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italy<br><a href
 
-    function setLanguage(lang) {
-      document.getElementById("headerTitle").textContent    = translations.headerTitle[lang];
-      document.getElementById("wifiTitle").textContent      = translations.wifiTitle[lang];
-      document.getElementById("contattiTitle").textContent = translations.contattiTitle[lang];
-      document.getElementById("contattiContent").innerHTML  = translations.contattiContent[lang];
-      document.getElementById("footerText").innerHTML      = translations.footerText[lang];
-
-      // Aggiorna nav links
-      document.getElementById("wifiTitleLink").textContent      = translations.wifiTitle[lang];
-      document.getElementById("contattiTitleLink").textContent  = translations.contattiTitle[lang];
-
-      // Aggiorna testo del bottone Show
-      updateShowBtnText(lang);
-    }
-
-    document.getElementById("languageSwitcher").addEventListener("change", function(){
-      setLanguage(this.value);
-    });
-
-    setLanguage("en");
-  </script>
-
-  <!-- Script per toggle WiFi e traduzione bottone -->
-  <script>
-    const showBtnTranslations = { it: 'Mostra', en: 'Show', es: 'Mostrar', de: 'Anzeigen' };
-    function updateShowBtnText(lang) {
-      const showBtn = document.getElementById('showBtn');
-      showBtn.textContent = showBtnTranslations[lang] || showBtnTranslations['en'];
-    }
-
-    window.addEventListener('DOMContentLoaded', function() {
-      const showBtn = document.getElementById("showBtn");
-      const infoBtn = document.getElementById("infoBtn");
-      const langSel = document.getElementById('languageSwitcher');
-
-      // Misura dimensioni di infoBtn
-      infoBtn.style.display = 'flex';
-      const width = infoBtn.offsetWidth + 'px';
-      const height = infoBtn.offsetHeight + 'px';
-      [showBtn, infoBtn].forEach(btn => { btn.style.width = width; btn.style.height = height; });
-      infoBtn.style.display = 'none';
-
-      // Imposta testo iniziale
-      updateShowBtnText(langSel.value);
-      langSel.addEventListener('change', function() { updateShowBtnText(this.value); });
-    });
-
-    function toggleWiFi() {
-      const showBtn = document.getElementById("showBtn");
-      const infoBtn = document.getElementById("infoBtn");
-      if (showBtn.style.display !== "none") {
-        showBtn.style.display = "none";
-        infoBtn.style.display = "flex";
-      } else {
-        infoBtn.style.display = "none";
-        showBtn.style.display = "flex";
-      }
-    }
-  </script>
-</body>
-</html>
