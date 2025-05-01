@@ -152,6 +152,8 @@
     const translations = {
       headerTitle: { it: "Benvenuti nella nostra casavacanza!", en: "Welcome to our holiday home!", es: "¡Bienvenidos a nuestra casa vacacional!", de: "Willkommen in unserem Ferienhaus!" },
       wifiTitle:   { it: "WiFi e Connessione",     en: "WiFi and Connection",      es: "WiFi y Conexión",            de: "WLAN und Verbindung" },
+      attrazioniTitle:{ it: "Attrazioni",                   en: "Attractions",                    es: "Atracciones",                  de: "Attraktionen" },
+      ristorantiTitle:{ it: "Dove Mangiare",                en: "Where to Eat",                  es: "Dónde Comer",                  de: "Wo Essen" },
       contattiTitle: { it: "Contatti",            en: "Contact",                  es: "Contactos",                  de: "Kontakt" },
       contattiContent: {
         it: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
@@ -172,6 +174,8 @@
     function setLanguage(lang) {
       document.getElementById("headerTitle").textContent    = translations.headerTitle[lang];
       document.getElementById("wifiTitle").textContent      = translations.wifiTitle[lang];
+      document.getElementById("attrazioniTitleLink").textContent = translations.attrazioniTitle[lang];
+      document.getElementById("ristorantiTitleLink").textContent = translations.ristorantiTitle[lang];
       document.getElementById("contattiTitle").textContent = translations.contattiTitle[lang];
       document.getElementById("contattiContent").innerHTML  = translations.contattiContent[lang];
       document.getElementById("footerText").innerHTML      = translations.footerText[lang];
@@ -181,9 +185,7 @@
       document.getElementById("contattiTitleLink").textContent = translations.contattiTitle[lang];
     }
 
-    document.getElementById("languageSwitcher").addEventListener("change", function() {
-      setLanguage(this.value);
-    });
+    document.getElementById("languageSwitcher").addEventListener("change", e => setLanguage(e.target.value));
     setLanguage(document.getElementById("languageSwitcher").value);
 
     // Toggle WiFi
