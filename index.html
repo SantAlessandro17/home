@@ -146,12 +146,73 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <!-- Script per il cambio lingua -->
+  <!-- Script per traduzioni e toggle WiFi -->
   <script>
+    // Traduzioni testi
     const translations = {
       headerTitle: { it: "Benvenuti nella nostra casavacanza!", en: "Welcome to our holiday home!", es: "¡Bienvenidos a nuestra casa vacacional!", de: "Willkommen in unserem Ferienhaus!" },
-      wifiTitle:   { it: "WiFi e Connessione",            en: "WiFi and Connection",             es: "WiFi y Conexión",                  de: "WLAN und Verbindung" },
-      contattiTitle: { it: "Contatti",                   en: "Contact",                         es: "Contactos",                        de: "Kontakt" },
-      contattiContent: { it: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
-                        en: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italy<br><a href
+      wifiTitle:   { it: "WiFi e Connessione",     en: "WiFi and Connection",      es: "WiFi y Conexión",            de: "WLAN und Verbindung" },
+      contattiTitle: { it: "Contatti",            en: "Contact",                  es: "Contactos",                  de: "Kontakt" },
+      contattiContent: {
+        it: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
+        en: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italy<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
+        es: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italia<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>",
+        de: "Via Sant'Alessandro 17<br>Bergamo, 24122, Italien<br><a href='tel:+393357009617'>+39 3357009617</a><br><a href='mailto:santalessandro17@gmail.com'>santalessandro17@gmail.com</a>"
+      },
+      footerText: {
+        it: "Per ulteriori informazioni, <a href='mailto:santalessandro17@gmail.com'>contattaci</a>!",
+        en: "For more information, <a href='mailto:santalessandro17@gmail.com'>contact us</a>!",
+        es: "Para más información, <a href='mailto:santalessandro17@gmail.com'>contáctenos</a>!",
+        de: "Für weitere Informationen, <a href='mailto:santalessandro17@gmail.com'>kontaktieren Sie uns</a>!"
+      },
+      showBtn: { it: "Mostra", en: "Show", es: "Mostrar", de: "Anzeigen" }
+    };
 
+    // Imposta lingua
+    function setLanguage(lang) {
+      document.getElementById("headerTitle").textContent    = translations.headerTitle[lang];
+      document.getElementById("wifiTitle").textContent      = translations.wifiTitle[lang];
+      document.getElementById("contattiTitle").textContent = translations.contattiTitle[lang];
+      document.getElementById("contattiContent").innerHTML  = translations.contattiContent[lang];
+      document.getElementById("footerText").innerHTML      = translations.footerText[lang];
+      document.getElementById("showBtn").textContent       = translations.showBtn[lang];
+      // Aggiorna nav link
+      document.getElementById("wifiTitleLink").textContent     = translations.wifiTitle[lang];
+      document.getElementById("contattiTitleLink").textContent = translations.contattiTitle[lang];
+    }
+
+    document.getElementById("languageSwitcher").addEventListener("change", function() {
+      setLanguage(this.value);
+    });
+    setLanguage(document.getElementById("languageSwitcher").value);
+
+    // Toggle WiFi
+    function toggleWiFi() {
+      const showBtn = document.getElementById("showBtn");
+      const infoBtn = document.getElementById("infoBtn");
+      if (showBtn.style.display !== "none") {
+        showBtn.style.display = "none";
+        infoBtn.style.display = "flex";
+      } else {
+        infoBtn.style.display = "none";
+        showBtn.style.display = "flex";
+      }
+    }
+
+    // Uniforma dimensioni bottoni
+    window.addEventListener('DOMContentLoaded', function() {
+      const showBtn = document.getElementById("showBtn");
+      const infoBtn = document.getElementById("infoBtn");
+      // misura
+      infoBtn.style.display = 'flex';
+      const width = infoBtn.offsetWidth + 'px';
+      const height = infoBtn.offsetHeight + 'px';
+      [showBtn, infoBtn].forEach(btn => {
+        btn.style.width = width;
+        btn.style.height = height;
+      });
+      infoBtn.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
