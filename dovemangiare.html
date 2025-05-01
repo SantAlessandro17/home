@@ -35,18 +35,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
         <ul class="navbar-nav ml-auto align-items-center">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="attrazioni.html">Attrazioni</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="dovemangiare.html">Dove Mangiare</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contatti</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html" id="homeLink">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="attrazioni.html" id="attrazioniLink">Attrazioni</a></li>
+          <li class="nav-item"><a class="nav-link" href="dovemangiare.html" id="ristorantiLink">Dove Mangiare</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" id="contattiLink">Contatti</a></li>
           <li class="nav-item ml-2">
             <select id="languageSwitcher" class="form-control form-control-sm">
               <option value="it">🇮🇹 IT</option>
@@ -62,6 +54,7 @@
       <h1 id="pageTitle">Where to Eat</h1>
     </div>
   </header>
+
   <div class="container mt-4">
     <section>
       <p id="pageContent">
@@ -69,53 +62,53 @@
       </p>
     </section>
     <div class="mt-4">
-      <a href="index.html" class="btn btn-primary">Back to Home</a>
+      <a href="index.html" class="btn btn-primary" id="backButton">Back to Home</a>
     </div>
   </div>
+
   <footer class="mt-4 py-4">
     <div class="container text-center">
-      <p id="footerText">
-        <!-- Solo la parola "contact us" come link -->
-        For more information, <a href="mailto:santalessandro17@gmail.com">contact us</a>!
-      </p>
+      <p id="footerText">For more information, <a href="mailto:santalessandro17@gmail.com">contact us</a>!</p>
     </div>
   </footer>
+
+  <!-- Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script>
     const translations = {
-      pageTitle: {
-        it: "Dove Mangiare",
-        en: "Where to Eat",
-        es: "Dónde Comer",
-        de: "Wo man essen kann"
-      },
-      pageContent: {
-        it: "Scopri i migliori ristoranti e bar: dalle trattorie locali alle cucine internazionali, troverai una varietà di opzioni per mangiare.",
-        en: "Find the best places to dine: from local trattorie to international cuisines, explore a variety of dining options.",
-        es: "Encuentra los mejores lugares para comer: desde trattorias locales hasta cocinas internacionales, explora una variedad de opciones gastronómicas.",
-        de: "Entdecken Sie die besten Restaurants: from local trattorie to international cuisine, erleben Sie eine Vielfalt an Essensmöglichkeiten."
-      },
-      footerText: {
-        it: "Per ulteriori informazioni, <a href='mailto:santalessandro17@gmail.com'>contattaci</a>!",
-        en: "For more information, <a href='mailto:santalessandro17@gmail.com'>contact us</a>!",
-        es: "Para más información, <a href='mailto:santalessandro17@gmail.com'>contáctenos</a>!",
-        de: "Für weitere Informationen, <a href='mailto:santalessandro17@gmail.com'>kontaktieren Sie uns</a>!"
-      }
+      homeLink:       { it: 'Home',            en: 'Home',            es: 'Inicio',          de: 'Startseite' },
+      attrazioniLink: { it: 'Attrazioni',      en: 'Attractions',     es: 'Atracciones',     de: 'Attraktionen' },
+      ristorantiLink: { it: 'Dove Mangiare',   en: 'Where to Eat',    es: 'Dónde Comer',     de: 'Wo Essen' },
+      contattiLink:   { it: 'Contatti',        en: 'Contact',         es: 'Contactos',       de: 'Kontakt' },
+      pageTitle:      { it: 'Dove Mangiare',   en: 'Where to Eat',    es: 'Dónde Comer',     de: 'Wo Essen' },
+      pageContent:    { it: 'Scopri i migliori ristoranti e bar: dalle trattorie locali alle cucine internazionali, troverai una varietà di opzioni per mangiare.',
+                        en: 'Find the best places to dine: from local trattorie to international cuisines, explore a variety of dining options.',
+                        es: 'Encuentra los mejores lugares para comer: desde trattorias locales hasta cocinas internacionales, explora una variedad de opciones gastronómicas.',
+                        de: 'Entdecken Sie die besten Restaurants: von lokalen Trattorien bis hin zu internationaler Küche, erkunden Sie eine Vielzahl von Speisemöglichkeiten.'},
+      backButton:     { it: 'Torna alla Home',  en: 'Back to Home',    es: 'Volver al Inicio', de: 'Zurück zur Startseite' },
+      footerText:     { it: 'Per ulteriori informazioni, <a href="mailto:santalessandro17@gmail.com">contattaci</a>!',
+                        en: 'For more information, <a href="mailto:santalessandro17@gmail.com">contact us</a>!',
+                        es: 'Para más información, <a href="mailto:santalessandro17@gmail.com">contáctenos</a>!',
+                        de: 'Für weitere Informationen, <a href="mailto:santalessandro17@gmail.com">kontaktieren Sie uns</a>!' }
     };
 
     function setLanguage(lang) {
-      document.getElementById("pageTitle").textContent = translations.pageTitle[lang];
-      document.getElementById("pageContent").textContent = translations.pageContent[lang];
-      document.getElementById("footerText").innerHTML = translations.footerText[lang];
+      document.getElementById('homeLink').textContent       = translations.homeLink[lang];
+      document.getElementById('attrazioniLink').textContent = translations.attrazioniLink[lang];
+      document.getElementById('ristorantiLink').textContent = translations.ristorantiLink[lang];
+      document.getElementById('contattiLink').textContent   = translations.contattiLink[lang];
+      document.getElementById('pageTitle').textContent      = translations.pageTitle[lang];
+      document.getElementById('pageContent').textContent    = translations.pageContent[lang];
+      document.getElementById('backButton').textContent     = translations.backButton[lang];
+      document.getElementById('footerText').innerHTML       = translations.footerText[lang];
     }
 
-    document.getElementById("languageSwitcher").addEventListener("change", function(){
+    document.getElementById('languageSwitcher').addEventListener('change', function() {
       setLanguage(this.value);
     });
-
-    setLanguage("en");
+    setLanguage(document.getElementById('languageSwitcher').value);
   </script>
 </body>
 </html>
