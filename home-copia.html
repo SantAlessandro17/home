@@ -158,6 +158,7 @@ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 <a href="#home" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navHome">Home</a>
 <a href="#attractions" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navAttractions">Attrazioni</a>
 <a href="#restaurants" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navRestaurants">Dove Mangiare</a>
+<a href="#wifi" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navWifi">Wi-Fi</a>
 <a href="#contact" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navContact">Contatti</a>
 <!-- Language Selector -->
 <div class="language-selector relative">
@@ -198,6 +199,7 @@ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 <a href="#home" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navHome">Home</a>
 <a href="#attractions" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navAttractions">Attrazioni</a>
 <a href="#restaurants" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navRestaurants">Dove Mangiare</a>
+<a href="#wifi" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navWifi">Wi-Fi</a>
 <a href="#contact" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navContact">Contatti</a>
 <div class="pt-4 border-t border-gray-200">
 <p class="text-sm text-gray-500 mb-2">Lingua</p>
@@ -590,6 +592,27 @@ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 </div>
 </div>
 </section>
+<!-- Wi-Fi Section -->
+<section id="wifi" class="py-16 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 data-i18n="wifiTitle" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Wi-Fi</h2>
+      <p data-i18n="wifiSubtitle" class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Connessione gratuita durante il soggiorno.
+      </p>
+    </div>
+    <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md text-center">
+      <p class="mb-4">
+        <span class="font-semibold">Rete:</span> vodafone-santalessandro17<br>
+        <span class="font-semibold">Password:</span> Bell@trix1
+      </p>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG8AAABvAQMAAADYCwwjAAAABlBMVEUAAAD///+l2Z/dAAAAAnRSTlP//8i138cAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAEgSURBVDiN1dQxisQwDAVQDSncjS9g8DXc+UrOBZLNBSZXcpdrGHIBu3Nh8leZGQa2iVwsC2vSPINAkqUQfhz6H8xEE5kRjciKLGhj3b98m9HBaOZ4hgfVxREc28tJGR1bF9GCb+TNJ8kLcr3jZvj7lH9BPoczc7Wfxl4wkyFvFwwPJ7PUAbBlI74UeVDTcT8c1k0mKpaaxphesdfMlO5qXzczkcwCe3AU+liNrlwyZwWRBw2PZ/ODkpldmjGseMcK9PxGdolDdlZkiaSR7o5bBJmbXet5+X4ygU1vRoNuUSaf7HnRbFYQeU4s0uRM6CDvwkR74VjfwfhaBLqhj7Ard752MXjiTiJ2kPdX7Txda7QizyHxnFUKBJF/9gf+NX4Dr9kfUG8V53YAAAAASUVORK5CYII=" alt="QR Wi-Fi" class="w-32 h-32 mx-auto mb-4">
+      <a href="WIFI:T:WPA;S:vodafone-santalessandro17;P:Bell@trix1;;" class="bg-primary text-white px-6 py-3 rounded-button hover:bg-opacity-90 transition-colors inline-block" data-i18n="wifiConnect">
+        Connetti
+      </a>
+    </div>
+  </div>
+</section>
 <!-- Contact Section -->
 <section id="contact" class="py-16 bg-gray-50">
 <div class="container mx-auto px-4">
@@ -737,6 +760,7 @@ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
 <li><a href="#attractions" class="text-gray-400 hover:text-white transition-colors">Attrazioni</a></li>
 <li><a href="#restaurants" class="text-gray-400 hover:text-white transition-colors">Dove Mangiare</a></li>
+<li><a href="#wifi" class="text-gray-400 hover:text-white transition-colors">Wi-Fi</a></li>
 <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contatti</a></li>
 </ul>
 </div>
@@ -836,6 +860,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navHome:        { it: 'Home', en: 'Home', es: 'Inicio', de: 'Start' },
     navAttractions: { it: 'Attrazioni', en: 'Attractions', es: 'Atracciones', de: 'Attraktionen' },
     navRestaurants: { it: 'Dove Mangiare', en: 'Where to Eat', es: 'Dónde Comer', de: 'Wo essen' },
+    navWifi:        { it: 'Wi-Fi', en: 'Wi-Fi', es: 'Wi-Fi', de: 'WLAN' },
     navContact:     { it: 'Contatti', en: 'Contact', es: 'Contacto', de: 'Kontakt' },
     heroTitle:      { it: "Benvenuti a Sant'Alessandro 17", en: "Welcome to Sant'Alessandro 17", es: "Bienvenidos a Sant'Alessandro 17", de: "Willkommen bei Sant'Alessandro 17" },
     heroSubtitle:   { it: "La tua casa vacanze nel cuore di Bergamo, dove comfort e storia si incontrano per un'esperienza indimenticabile.", en: 'Your holiday home in the heart of Bergamo, where comfort and history meet for an unforgettable experience.', es: 'Tu casa vacacional en el corazón de Bérgamo, donde la comodidad y la historia se unen para una experiencia inolvidable.', de: 'Dein Feriendomizil im Herzen von Bergamo, wo Komfort und Geschichte sich zu einem unvergesslichen Erlebnis verbinden.' },
@@ -895,6 +920,9 @@ document.addEventListener('DOMContentLoaded', function() {
     rest6Desc:      { it: 'Gelato artigianale preparato con ingredienti freschi e naturali. Gusti classici e creativi.', en: 'Artisanal gelato made with fresh natural ingredients. Classic and creative flavours.', es: 'Helado artesanal elaborado con ingredientes frescos y naturales. Sabores clásicos y creativos.', de: 'Hausgemachtes Gelato aus frischen Zutaten. Klassische und kreative Sorten.' },
     rest6Dist:      { it: '6 minuti a piedi', en: '6 minutes walk', es: '6 minutos a pie', de: '6 Minuten zu Fuß' },
     showRestBtn:    { it: 'Scopri altri ristoranti', en: 'See more restaurants', es: 'Ver más restaurantes', de: 'Weitere Restaurants' },
+    wifiTitle:      { it: 'Wi-Fi', en: 'Wi-Fi', es: 'Wi-Fi', de: 'WLAN' },
+    wifiSubtitle:   { it: 'Connessione gratuita durante il soggiorno.', en: 'Free connection during your stay.', es: 'Conexión gratuita durante la estancia.', de: 'Kostenlose Verbindung während Ihres Aufenthalts.' },
+    wifiConnect:    { it: 'Connetti', en: 'Connect', es: 'Conectar', de: 'Verbinden' },
     contactTitle:   { it: 'Contattaci', en: 'Contact Us', es: 'Contáctanos', de: 'Kontaktieren Sie uns' },
     contactSubtitle:{ it: 'Hai domande o vuoi prenotare il tuo soggiorno? Siamo qui per aiutarti.', en: 'Have questions or want to book your stay? We are here to help.', es: '¿Tienes preguntas o quieres reservar tu estancia? Estamos aquí para ayudarte.', de: 'Haben Sie Fragen oder möchten Sie buchen? Wir helfen gerne.' },
     contactBtn:     { it: 'Invia messaggio', en: 'Send message', es: 'Enviar mensaje', de: 'Nachricht senden' },
