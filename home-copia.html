@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sant'Alessandro 17 - Casa Vacanze nel Centro di Bergamo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3B7A57',secondary:'#D4AF37'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Poppins', sans-serif;
+scroll-behavior: smooth;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Playfair Display', serif;
+}
+.logo {
+font-family: 'Pacifico', serif;
+}
+.hero-section {
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+.header-scrolled {
+background-color: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(12px);
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.language-selector:focus-within .language-dropdown {
+display: block;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 1.25rem;
+height: 1.25rem;
+border: 2px solid #3B7A57;
+border-radius: 4px;
+outline: none;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #3B7A57;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+top: 3px;
+left: 7px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 3.5rem;
+height: 1.75rem;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #e5e7eb;
+transition: .4s;
+border-radius: 34px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 1.25rem;
+width: 1.25rem;
+left: 0.25rem;
+bottom: 0.25rem;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #3B7A57;
+}
+input:checked + .slider:before {
+transform: translateX(1.75rem);
+}
+.tab-active {
+color: #3B7A57;
+border-bottom: 2px solid #3B7A57;
+}
+.mobile-menu {
+transform: translateX(100%);
+transition: transform 0.3s ease-in-out;
+}
+.mobile-menu.open {
+transform: translateX(0);
+}
+.hamburger-line {
+transition: all 0.3s ease-in-out;
+}
+.hamburger.open .hamburger-line:nth-child(1) {
+transform: translateY(8px) rotate(45deg);
+}
+.hamburger.open .hamburger-line:nth-child(2) {
+opacity: 0;
+}
+.hamburger.open .hamburger-line:nth-child(3) {
+transform: translateY(-8px) rotate(-45deg);
+}
+@media (max-width: 768px) {
+.desktop-nav {
+display: none;
+}
+}
+@media (min-width: 769px) {
+.mobile-nav-button {
+display: none;
+}
+}
+.gallery-image {
+transition: transform 0.3s ease;
+}
+.gallery-image:hover {
+transform: scale(1.05);
+}
+.attraction-card, .restaurant-card {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.attraction-card:hover, .restaurant-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Header -->
+<header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 py-4 bg-white/80 backdrop-blur-md">
+<div class="container mx-auto px-4 flex justify-between items-center">
+<a href="#" class="logo text-primary text-2xl">Sant'Alessandro 17</a>
+<!-- Desktop Navigation -->
+<nav class="desktop-nav flex items-center space-x-8">
+<a href="#home" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navHome">Home</a>
+<a href="#attractions" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navAttractions">Attrazioni</a>
+<a href="#restaurants" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navRestaurants">Dove Mangiare</a>
+<a href="#contact" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navContact">Contatti</a>
+<!-- Language Selector -->
+<div class="language-selector relative">
+<button class="flex items-center space-x-1 text-gray-800 hover:text-primary transition-colors">
+<span>IT</span>
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-arrow-down-s-line"></i>
+</div>
+</button>
+<div class="language-dropdown hidden absolute right-0 mt-2 w-24 bg-white shadow-lg rounded-button overflow-hidden z-10">
+<a href="#" data-lang="en" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors">EN</a>
+<a href="#" data-lang="es" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors">ES</a>
+<a href="#" data-lang="de" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors">DE</a>
+</div>
+</div>
+</nav>
+<!-- Mobile Navigation Button -->
+<button id="mobile-nav-button" class="mobile-nav-button w-10 h-10 flex items-center justify-center">
+<div class="hamburger w-6 h-6 flex flex-col justify-between">
+<span class="hamburger-line block w-full h-0.5 bg-gray-800"></span>
+<span class="hamburger-line block w-full h-0.5 bg-gray-800"></span>
+<span class="hamburger-line block w-full h-0.5 bg-gray-800"></span>
+</div>
+</button>
+</div>
+</header>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 p-6">
+<div class="flex justify-end mb-8">
+<button id="close-menu" class="w-8 h-8 flex items-center justify-center">
+<div class="w-5 h-5 flex items-center justify-center">
+<i class="ri-close-line text-xl"></i>
+</div>
+</button>
+</div>
+<nav class="flex flex-col space-y-4">
+<a href="#home" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navHome">Home</a>
+<a href="#attractions" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navAttractions">Attrazioni</a>
+<a href="#restaurants" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navRestaurants">Dove Mangiare</a>
+<a href="#contact" class="text-gray-800 hover:text-primary transition-colors" data-i18n="navContact">Contatti</a>
+<div class="pt-4 border-t border-gray-200">
+<p class="text-sm text-gray-500 mb-2">Lingua</p>
+<div class="flex flex-col space-y-2">
+<a href="#" class="flex items-center space-x-2 text-primary">
+<span class="w-5 h-5 flex items-center justify-center">
+<i class="ri-check-line"></i>
+</span>
+<span>Italiano</span>
+</a>
+<a href="#" class="flex items-center space-x-2 text-gray-800 hover:text-primary transition-colors">
+<span class="w-5 h-5 flex items-center justify-center opacity-0">
+<i class="ri-check-line"></i>
+</span>
+<span>English</span>
+</a>
+<a href="#" class="flex items-center space-x-2 text-gray-800 hover:text-primary transition-colors">
+<span class="w-5 h-5 flex items-center justify-center opacity-0">
+<i class="ri-check-line"></i>
+</span>
+<span>Deutsch</span>
+</a>
+<a href="#" class="flex items-center space-x-2 text-gray-800 hover:text-primary transition-colors">
+<span class="w-5 h-5 flex items-center justify-center opacity-0">
+<i class="ri-check-line"></i>
+</span>
+<span>Français</span>
+</a>
+</div>
+</div>
+</nav>
+</div>
+<!-- Main Content -->
+<main>
+<!-- Hero Section -->
+<section id="home" class="hero-section min-h-screen pt-24 flex items-center" style="background-image: url('https://readdy.ai/api/search-image?query=A%20luxurious%20apartment%20interior%20in%20Bergamo%2C%20Italy.%20The%20image%20shows%20a%20modern%2C%20elegant%20living%20room%20with%20large%20windows%20that%20let%20in%20natural%20light.%20The%20interior%20features%20a%20blend%20of%20contemporary%20and%20classic%20Italian%20design%20elements%2C%20with%20comfortable%20furniture%2C%20warm%20lighting%2C%20and%20tasteful%20decorations.%20The%20color%20palette%20includes%20soft%20neutrals%20with%20accents%20of%20green%20and%20gold%2C%20creating%20a%20welcoming%20and%20sophisticated%20atmosphere.&width=1920&height=1080&seq=hero1&orientation=landscape');">
+<div class="container mx-auto px-4">
+<div class="w-full max-w-2xl bg-white/90 p-8 md:p-12 rounded-lg backdrop-blur-sm">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" data-i18n="heroTitle">Benvenuti a Sant'Alessandro 17</h1>
+<p class="text-lg text-gray-700 mb-8" data-i18n="heroSubtitle">La tua casa vacanze nel cuore di Bergamo, dove comfort e storia si incontrano per un'esperienza indimenticabile.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a href="#contact" data-i18n="heroBook" class="bg-primary text-white px-6 py-3 rounded-button text-center whitespace-nowrap hover:bg-opacity-90 transition-colors">Prenota ora</a>
+<a href="#attractions" data-i18n="heroDiscover" class="border border-primary text-primary px-6 py-3 rounded-button text-center whitespace-nowrap hover:bg-primary hover:text-white transition-colors">Scopri Bergamo</a>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 data-i18n="aboutTitle" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">La Nostra Casa Vacanze</h2>
+<p data-i18n="aboutSubtitle" class="text-lg text-gray-600 max-w-3xl mx-auto">Un rifugio elegante e confortevole nel centro storico di Bergamo, perfetto per esplorare le meraviglie della città.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<p data-i18n="aboutP1" class="text-gray-700 mb-6">Situato in una posizione privilegiata in Via Sant'Alessandro 17, il nostro appartamento offre un'esperienza di soggiorno unica, combinando il fascino storico di Bergamo con tutti i comfort moderni che potresti desiderare.</p>
+<p data-i18n="aboutP2" class="text-gray-700 mb-6">Completamente ristrutturato nel 2023, l'appartamento è stato arredato con cura per garantire il massimo comfort durante il vostro soggiorno, mantenendo al contempo l'eleganza e lo stile tipico italiano.</p>
+<div class="grid grid-cols-2 gap-4 mb-6">
+<div class="flex items-start space-x-3">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-hotel-bed-line"></i>
+</div>
+<div>
+<h4 data-i18n="feat1Title" class="font-medium text-gray-900">2 Camere da letto</h4>
+<p data-i18n="feat1Desc" class="text-sm text-gray-600">Spaziose e confortevoli</p>
+</div>
+</div>
+<div class="flex items-start space-x-3">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-home-wifi-line"></i>
+</div>
+<div>
+<h4 data-i18n="feat2Title" class="font-medium text-gray-900">Wi-Fi gratuito</h4>
+<p data-i18n="feat2Desc" class="text-sm text-gray-600">Connessione veloce</p>
+</div>
+</div>
+<div class="flex items-start space-x-3">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-tv-line"></i>
+</div>
+<div>
+<h4 data-i18n="feat3Title" class="font-medium text-gray-900">Smart TV</h4>
+<p data-i18n="feat3Desc" class="text-sm text-gray-600">Con Netflix incluso</p>
+</div>
+</div>
+<div class="flex items-start space-x-3">
+<div class="w-6 h-6 flex items-center justify-center text-primary">
+<i class="ri-refrigerator-line"></i>
+</div>
+<div>
+<h4 data-i18n="feat4Title" class="font-medium text-gray-900">Cucina completa</h4>
+<p data-i18n="feat4Desc" class="text-sm text-gray-600">Completamente attrezzata</p>
+</div>
+</div>
+</div>
+<a href="#contact" data-i18n="aboutBtn" class="inline-block bg-primary text-white px-6 py-3 rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Verifica disponibilità</a>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="overflow-hidden rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=A%20cozy%20and%20elegant%20bedroom%20in%20an%20Italian%20apartment%2C%20featuring%20a%20comfortable%20double%20bed%20with%20crisp%20white%20linens%20and%20decorative%20pillows.%20The%20room%20has%20wooden%20floors%2C%20tasteful%20wall%20art%2C%20and%20large%20windows%20with%20soft%20curtains.%20The%20design%20combines%20modern%20comfort%20with%20traditional%20Italian%20elements%2C%20creating%20a%20warm%20and%20inviting%20atmosphere%20perfect%20for%20relaxation.&width=600&height=800&seq=bedroom1&orientation=portrait" alt="Camera da letto" class="gallery-image w-full h-full object-cover object-top">
+</div>
+<div class="overflow-hidden rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=A%20modern%2C%20well-equipped%20kitchen%20in%20an%20Italian%20apartment%20with%20sleek%20countertops%2C%20stainless%20steel%20appliances%2C%20and%20wooden%20cabinets.%20The%20kitchen%20features%20a%20coffee%20machine%2C%20stovetop%2C%20and%20all%20necessary%20cooking%20utensils.%20Natural%20light%20streams%20in%20through%20a%20window%2C%20highlighting%20the%20clean%20and%20functional%20design%20that%20combines%20practicality%20with%20Italian%20style.&width=600&height=800&seq=kitchen1&orientation=portrait" alt="Cucina" class="gallery-image w-full h-full object-cover object-top">
+</div>
+<div class="overflow-hidden rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=A%20stylish%20bathroom%20in%20an%20Italian%20apartment%20featuring%20modern%20fixtures%2C%20a%20glass%20shower%20enclosure%2C%20and%20elegant%20tile%20work.%20The%20bathroom%20has%20a%20clean%2C%20contemporary%20design%20with%20a%20vanity%20mirror%2C%20sink%20with%20storage%20underneath%2C%20and%20good%20lighting.%20The%20color%20scheme%20includes%20whites%20and%20soft%20grays%2C%20creating%20a%20spa-like%20atmosphere%20that%20feels%20both%20luxurious%20and%20practical.&width=600&height=800&seq=bathroom1&orientation=portrait" alt="Bagno" class="gallery-image w-full h-full object-cover object-top">
+</div>
+<div class="overflow-hidden rounded-lg">
+<img src="https://readdy.ai/api/search-image?query=A%20comfortable%20living%20room%20in%20an%20Italian%20apartment%20with%20a%20plush%20sofa%2C%20coffee%20table%2C%20and%20stylish%20decor.%20The%20room%20features%20wooden%20floors%2C%20tasteful%20artwork%20on%20the%20walls%2C%20and%20decorative%20elements%20that%20reflect%20Italian%20design%20sensibilities.%20Large%20windows%20allow%20natural%20light%20to%20fill%20the%20space%2C%20creating%20a%20warm%20and%20inviting%20atmosphere%20perfect%20for%20relaxation%20after%20a%20day%20of%20sightseeing.&width=600&height=800&seq=livingroom1&orientation=portrait" alt="Soggiorno" class="gallery-image w-full h-full object-cover object-top">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Attractions Section -->
+<section id="attractions" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 data-i18n="attractionsTitle" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Scopri Bergamo</h2>
+<p data-i18n="attractionsSubtitle" class="text-lg text-gray-600 max-w-3xl mx-auto">Esplora le meraviglie di questa città storica, tutte a pochi passi dal nostro appartamento.</p>
+</div>
+<div class="mb-12 rounded-lg overflow-hidden shadow-lg">
+<div class="h-96 bg-gray-200" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-position: center; background-size: cover;"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="attraction-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=The%20historic%20Citt%C3%A0%20Alta%20%28Upper%20Town%29%20of%20Bergamo%2C%20Italy%2C%20with%20its%20medieval%20architecture%2C%20stone%20walls%2C%20and%20cobblestone%20streets.%20The%20image%20shows%20the%20iconic%20skyline%20with%20bell%20towers%20and%20terracotta%20roofs%20against%20a%20clear%20blue%20sky.%20The%20scene%20captures%20the%20charm%20and%20historical%20significance%20of%20this%20UNESCO%20World%20Heritage%20site%2C%20with%20its%20well-preserved%20buildings%20and%20scenic%20views%20of%20the%20surrounding%20landscape.&width=600&height=400&seq=cittaalta1&orientation=landscape" alt="Città Alta" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-5">
+<h3 data-i18n="attr1Title" class="text-xl font-bold text-gray-900 mb-2">Città Alta</h3>
+<p data-i18n="attr1Desc" class="text-gray-700 mb-3">Il centro storico medievale di Bergamo, circondato da mura veneziane e ricco di monumenti storici.</p>
+<div class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-sm" data-i18n="attr1Dist">15 minuti a piedi</span>
+</div>
+</div>
+</div>
+<div class="attraction-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=The%20magnificent%20interior%20of%20the%20Basilica%20di%20Santa%20Maria%20Maggiore%20in%20Bergamo%2C%20Italy.%20The%20image%20showcases%20the%20ornate%20baroque%20architecture%20with%20elaborate%20frescoes%20on%20the%20ceiling%2C%20marble%20columns%2C%20and%20intricate%20decorations.%20The%20basilicas%20stunning%20interior%20features%20golden%20accents%2C%20religious%20artwork%2C%20and%20the%20beautiful%20play%20of%20light%20through%20stained%20glass%20windows%2C%20highlighting%20the%20spiritual%20and%20artistic%20significance%20of%20this%20historic%20church.&width=600&height=400&seq=basilica1&orientation=landscape" alt="Basilica di Santa Maria Maggiore" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-5">
+<h3 data-i18n="attr2Title" class="text-xl font-bold text-gray-900 mb-2">Basilica di Santa Maria Maggiore</h3>
+<p data-i18n="attr2Desc" class="text-gray-700 mb-3">Una delle chiese più belle d'Italia con interni riccamente decorati e affreschi mozzafiato.</p>
+<div class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-sm" data-i18n="attr2Dist">20 minuti a piedi</span>
+</div>
+</div>
+</div>
+<div class="attraction-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=The%20ornate%20facade%20of%20the%20Cappella%20Colleoni%20in%20Bergamo%2C%20Italy.%20The%20image%20shows%20the%20detailed%20Renaissance%20architecture%20with%20its%20colorful%20marble%20inlays%2C%20sculptures%2C%20and%20decorative%20elements.%20The%20chapels%20exterior%20features%20intricate%20patterns%2C%20religious%20figures%2C%20and%20the%20distinctive%20dome%2C%20all%20set%20against%20a%20clear%20blue%20sky%2C%20highlighting%20the%20artistic%20mastery%20and%20historical%20importance%20of%20this%2015th-century%20mausoleum%20built%20for%20the%20condottiere%20Bartolomeo%20Colleoni.&width=600&height=400&seq=cappella1&orientation=landscape" alt="Cappella Colleoni" class="w-full h-full object-cover object-top"></div>
+<div class="p-5">
+<h3 data-i18n="attr3Title" class="text-xl font-bold text-gray-900 mb-2">Cappella Colleoni</h3>
+<p data-i18n="attr3Desc" class="text-gray-700 mb-3">Capolavoro rinascimentale con una facciata riccamente decorata e interni artistici di grande valore.</p>
+<div class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-sm" data-i18n="attr3Dist">20 minuti a piedi</span>
+</div>
+</div>
+</div>
+<div class="attraction-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=The%20historic%20Piazza%20Vecchia%20in%20Bergamo%2C%20Italy%2C%20with%20its%20central%20fountain%20and%20surrounding%20medieval%20and%20Renaissance%20buildings.%20The%20image%20captures%20the%20charming%20square%20with%20outdoor%20cafes%2C%20the%20Palazzo%20della%20Ragione%2C%20and%20the%20iconic%20Contarini%20Fountain%20at%20its%20center.%20The%20scene%20shows%20the%20lively%20atmosphere%20of%20this%20gathering%20place%2C%20with%20its%20beautiful%20architecture%2C%20cobblestone%20pavement%2C%20and%20the%20warm%20glow%20of%20evening%20lights%20illuminating%20the%20historic%20facades.&width=600&height=400&seq=piazza1&orientation=landscape" alt="Piazza Vecchia" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-5">
+<h3 data-i18n="attr4Title" class="text-xl font-bold text-gray-900 mb-2">Piazza Vecchia</h3>
+<p data-i18n="attr4Desc" class="text-gray-700 mb-3">Il cuore pulsante della Città Alta, circondata da edifici storici e caffè all'aperto.</p>
+<div class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-time-line"></i>
+</div>
+<span class="text-sm" data-i18n="attr4Dist">18 minuti a piedi</span>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-10">
+<a href="#" data-i18n="showAttrBtn" class="inline-block border border-primary text-primary px-6 py-3 rounded-button whitespace-nowrap hover:bg-primary hover:text-white transition-colors">Scopri altre attrazioni</a>
+</div>
+</div>
+</section>
+<!-- Restaurants Section -->
+<section id="restaurants" class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 data-i18n="restaurantsTitle" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Dove Mangiare</h2>
+<p data-i18n="restaurantsSubtitle" class="text-lg text-gray-600 max-w-3xl mx-auto">Scopri i migliori ristoranti e caffè nei dintorni del nostro appartamento.</p>
+</div>
+<div class="mb-8 flex flex-wrap justify-center gap-4">
+<button data-i18n="filterAll" class="px-4 py-2 rounded-full bg-primary text-white whitespace-nowrap">Tutti</button>
+<button data-i18n="filterItalian" class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors whitespace-nowrap">Cucina Italiana</button>
+<button data-i18n="filterPizza" class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors whitespace-nowrap">Pizzerie</button>
+<button data-i18n="filterCafe" class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors whitespace-nowrap">Caffè & Pasticcerie</button>
+<button data-i18n="filterIntl" class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors whitespace-nowrap">Cucina Internazionale</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="restaurant-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=An%20elegant%20Italian%20restaurant%20interior%20with%20rustic%20charm%2C%20featuring%20wooden%20tables%20with%20white%20tablecloths%2C%20ambient%20lighting%20from%20chandeliers%2C%20and%20stone%20walls.%20The%20dining%20space%20has%20a%20warm%2C%20inviting%20atmosphere%20with%20wine%20bottles%20displayed%20on%20shelves%2C%20fresh%20flowers%20on%20tables%2C%20and%20traditional%20Italian%20decor%20elements.%20The%20setting%20suggests%20a%20high-quality%20dining%20experience%20with%20attention%20to%20authentic%20details.&width=600&height=400&seq=restaurant1&orientation=landscape" alt="Trattoria Sant'Ambrogio" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-3">
+<h3 data-i18n="rest1Title" class="text-xl font-bold text-gray-900">Trattoria Sant'Ambrogio</h3>
+<div class="flex">
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<span class="ml-1">4.8</span>
+</div>
+</div>
+<p data-i18n="rest1Desc" class="text-gray-700 mb-3">Autentica cucina bergamasca in un ambiente accogliente e familiare. Specialità: casoncelli alla bergamasca.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Cucina Italiana</span>
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Tradizionale</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-sm" data-i18n="rest1Dist">5 minuti a piedi</span>
+</div>
+<a href="#" class="text-primary hover:underline">Prenota</a>
+</div>
+</div>
+</div>
+<div class="restaurant-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20modern%20pizzeria%20with%20a%20wood-fired%20oven%20visible%20in%20the%20background.%20The%20interior%20features%20a%20combination%20of%20rustic%20and%20contemporary%20elements%2C%20with%20wooden%20tables%2C%20stylish%20lighting%2C%20and%20an%20open%20kitchen%20where%20chefs%20can%20be%20seen%20preparing%20pizzas.%20The%20atmosphere%20is%20lively%20and%20casual%2C%20with%20the%20warm%20glow%20from%20the%20pizza%20oven%20creating%20an%20inviting%20ambiance.%20The%20decor%20includes%20some%20Italian%20elements%20like%20vintage%20posters%20and%20wine%20bottles.&width=600&height=400&seq=pizzeria1&orientation=landscape" alt="Pizzeria Napoli" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-3">
+<h3 data-i18n="rest2Title" class="text-xl font-bold text-gray-900">Pizzeria Napoli</h3>
+<div class="flex">
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<span class="ml-1">4.6</span>
+</div>
+</div>
+<p data-i18n="rest2Desc" class="text-gray-700 mb-3">Autentica pizza napoletana cotta in forno a legna. Impasto leggero e ingredienti di prima qualità.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Pizzeria</span>
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Napoletana</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-sm">8 minuti a piedi</span>
+</div>
+<a href="#" class="text-primary hover:underline">Prenota</a>
+</div>
+</div>
+</div>
+<div class="restaurant-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20charming%20Italian%20caf%C3%A9%20with%20an%20elegant%20pastry%20display%20case%20showing%20a%20variety%20of%20colorful%20pastries%2C%20cakes%2C%20and%20traditional%20Italian%20desserts.%20The%20caf%C3%A9%20has%20a%20sophisticated%20yet%20welcoming%20atmosphere%20with%20marble-topped%20tables%2C%20comfortable%20seating%2C%20and%20classic%20decor%20elements.%20Baristas%20can%20be%20seen%20working%20at%20a%20professional%20espresso%20machine%2C%20and%20the%20warm%20lighting%20creates%20an%20inviting%20ambiance%20perfect%20for%20enjoying%20coffee%20and%20pastries.&width=600&height=400&seq=cafe1&orientation=landscape" alt="Caffè Centrale" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-3">
+<h3 data-i18n="rest3Title" class="text-xl font-bold text-gray-900">Caffè Centrale</h3>
+<div class="flex">
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<span class="ml-1">4.7</span>
+</div>
+</div>
+<p data-i18n="rest3Desc" class="text-gray-700 mb-3">Elegante caffetteria con pasticceria artigianale. Ottimo per colazioni e pause pomeridiane.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Caffè</span>
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Pasticceria</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-sm">3 minuti a piedi</span>
+</div>
+<a href="#" class="text-primary hover:underline">Dettagli</a>
+</div>
+</div>
+</div>
+<div class="restaurant-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20sophisticated%20fine%20dining%20restaurant%20with%20an%20elegant%20interior%20featuring%20white%20tablecloths%2C%20crystal%20glassware%2C%20and%20refined%20table%20settings.%20The%20space%20has%20a%20modern%20Italian%20design%20with%20soft%20lighting%2C%20comfortable%20seating%2C%20and%20tasteful%20art%20on%20the%20walls.%20The%20atmosphere%20suggests%20a%20high-end%20culinary%20experience%2C%20with%20attention%20to%20detail%20in%20both%20the%20decor%20and%20presentation.%20The%20restaurant%20appears%20spacious%20yet%20intimate%2C%20perfect%20for%20special%20occasions.&width=600&height=400&seq=restaurant2&orientation=landscape" alt="Ristorante Colleoni & Dell'Angelo" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-3">
+<h3 data-i18n="rest4Title" class="text-xl font-bold text-gray-900">Ristorante Colleoni & Dell'Angelo</h3>
+<div class="flex">
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<span class="ml-1">4.9</span>
+</div>
+</div>
+<p data-i18n="rest4Desc" class="text-gray-700 mb-3">Ristorante gourmet con piatti della tradizione rivisitati in chiave moderna. Vista panoramica.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Fine Dining</span>
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Gourmet</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-sm">15 minuti a piedi</span>
+</div>
+<a href="#" class="text-primary hover:underline">Prenota</a>
+</div>
+</div>
+</div>
+<div class="restaurant-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20cozy%20wine%20bar%20with%20a%20rustic%20Italian%20atmosphere%2C%20featuring%20wooden%20wine%20racks%20filled%20with%20bottles%2C%20a%20stone%20bar%20counter%2C%20and%20intimate%20seating%20areas.%20The%20space%20has%20warm%20lighting%20from%20pendant%20lamps%2C%20exposed%20brick%20walls%2C%20and%20comfortable%20seating.%20The%20ambiance%20suggests%20a%20place%20for%20wine%20tasting%20and%20enjoying%20small%20plates%2C%20with%20wine%20glasses%20and%20charcuterie%20boards%20visible%20on%20some%20tables.%20The%20overall%20feeling%20is%20sophisticated%20yet%20relaxed.&width=600&height=400&seq=winebar1&orientation=landscape" alt="Enoteca Zanini" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-3">
+<h3 data-i18n="rest5Title" class="text-xl font-bold text-gray-900">Enoteca Zanini</h3>
+<div class="flex">
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<span class="ml-1">4.7</span>
+</div>
+</div>
+<p data-i18n="rest5Desc" class="text-gray-700 mb-3">Enoteca con vasta selezione di vini locali e nazionali. Ottimi taglieri di salumi e formaggi.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Enoteca</span>
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Wine Bar</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-sm">7 minuti a piedi</span>
+</div>
+<a href="#" class="text-primary hover:underline">Dettagli</a>
+</div>
+</div>
+</div>
+<div class="restaurant-card bg-white rounded-lg overflow-hidden shadow-md">
+<div class="h-48 overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=A%20traditional%20Italian%20gelato%20shop%20with%20a%20colorful%20display%20case%20showing%20various%20flavors%20of%20artisanal%20gelato.%20The%20interior%20has%20a%20bright%2C%20cheerful%20atmosphere%20with%20classic%20Italian%20design%20elements%2C%20marble%20countertops%2C%20and%20vintage%20decorations.%20Customers%20can%20be%20seen%20selecting%20from%20the%20vibrant%20array%20of%20gelato%20flavors%2C%20and%20there%20are%20some%20small%20tables%20for%20enjoying%20the%20treats.%20The%20shop%20has%20an%20authentic%20Italian%20gelato%20parlor%20feel%20with%20attention%20to%20quality%20presentation.&width=600&height=400&seq=gelato1&orientation=landscape" alt="Gelateria Antica" class="w-full h-full object-cover object-top">
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-3">
+<h3 data-i18n="rest6Title" class="text-xl font-bold text-gray-900">Gelateria Antica</h3>
+<div class="flex">
+<div class="w-5 h-5 flex items-center justify-center text-yellow-400">
+<i class="ri-star-fill"></i>
+</div>
+<span class="ml-1">4.8</span>
+</div>
+</div>
+<p data-i18n="rest6Desc" class="text-gray-700 mb-3">Gelato artigianale preparato con ingredienti freschi e naturali. Gusti classici e creativi.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Gelateria</span>
+<span class="px-2 py-1 bg-gray-100 text-xs text-gray-700 rounded-full">Dessert</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center text-gray-600">
+<div class="w-5 h-5 flex items-center justify-center mr-1">
+<i class="ri-map-pin-line"></i>
+</div>
+<span class="text-sm">6 minuti a piedi</span>
+</div>
+<a href="#" class="text-primary hover:underline">Dettagli</a>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center mt-10">
+<a href="#" data-i18n="showRestBtn" class="inline-block border border-primary text-primary px-6 py-3 rounded-button whitespace-nowrap hover:bg-primary hover:text-white transition-colors">Scopri altri ristoranti</a>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="text-center mb-12">
+<h2 data-i18n="contactTitle" class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contattaci</h2>
+<p data-i18n="contactSubtitle" class="text-lg text-gray-600 max-w-3xl mx-auto">Hai domande o vuoi prenotare il tuo soggiorno? Siamo qui per aiutarti.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<form class="bg-white p-8 rounded-lg shadow-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome</label>
+<input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Il tuo nome">
+</div>
+<div>
+<label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="La tua email">
+</div>
+</div>
+<div class="mb-6">
+<label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Oggetto</label>
+<input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Oggetto del messaggio">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-sm font-medium text-gray-700 mb-1">Messaggio</label>
+<textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Il tuo messaggio"></textarea>
+</div>
+<div class="flex items-center mb-6">
+<input type="checkbox" id="privacy" class="custom-checkbox">
+<label for="privacy" class="ml-2 text-sm text-gray-700">Accetto la <a href="#" class="text-primary hover:underline">Privacy Policy</a></label>
+</div>
+<button data-i18n="contactBtn" type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Invia messaggio</button>
+</form>
+</div>
+<div>
+<div class="bg-white p-8 rounded-lg shadow-md mb-8">
+<h3 data-i18n="infoTitle" class="text-xl font-bold text-gray-900 mb-4">Informazioni</h3>
+<div class="space-y-4">
+<div class="flex items-start space-x-3">
+<div class="w-6 h-6 flex items-center justify-center text-primary mt-1">
+<i class="ri-map-pin-line"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Indirizzo</h4>
+<p class="text-gray-600">Via Sant'Alessandro 17, 24122 Bergamo, Italia</p>
+</div>
+</div>
+<div class="flex items-start space-x-3">
+<div class="w-6 h-6 flex items-center justify-center text-primary mt-1">
+<i class="ri-phone-line"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Telefono</h4>
+<p class="text-gray-600">+39 035 123 4567</p>
+</div>
+</div>
+<div class="flex items-start space-x-3">
+<div class="w-6 h-6 flex items-center justify-center text-primary mt-1">
+<i class="ri-mail-line"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Email</h4>
+<p class="text-gray-600">info@santalessandro17.it</p>
+</div>
+</div>
+<div class="flex items-start space-x-3">
+<div class="w-6 h-6 flex items-center justify-center text-primary mt-1">
+<i class="ri-time-line"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-900">Check-in / Check-out</h4>
+<p class="text-gray-600">Check-in: 15:00 - 20:00<br>Check-out: entro le 11:00</p>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<h4 class="font-medium text-gray-900 mb-3">Seguici</h4>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-whatsapp-line"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full text-gray-600 hover:bg-primary hover:text-white transition-colors">
+<i class="ri-airbnb-fill"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="bg-white p-8 rounded-lg shadow-md">
+<h3 data-i18n="bookTitle" class="text-xl font-bold text-gray-900 mb-4">Prenota su</h3>
+<div class="grid grid-cols-2 gap-4">
+<a href="#" class="flex items-center justify-center space-x-2 bg-gray-100 p-4 rounded-lg hover:bg-gray-200 transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-airbnb-fill text-red-500"></i>
+</div>
+<span>Airbnb</span>
+</a>
+<a href="#" class="flex items-center justify-center space-x-2 bg-gray-100 p-4 rounded-lg hover:bg-gray-200 transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-building-4-line text-blue-500"></i>
+</div>
+<span>Booking.com</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div>
+<h3 class="logo text-2xl text-white mb-4">Sant'Alessandro 17</h3>
+<p class="text-gray-400 mb-6">La tua casa vacanze nel cuore di Bergamo, dove comfort e storia si incontrano.</p>
+<div class="flex space-x-4">
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-facebook-fill"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-instagram-line"></i>
+</div>
+</a>
+<a href="#" class="text-gray-400 hover:text-white transition-colors">
+<div class="w-6 h-6 flex items-center justify-center">
+<i class="ri-whatsapp-line"></i>
+</div>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Link Rapidi</h4>
+<ul class="space-y-2">
+<li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+<li><a href="#attractions" class="text-gray-400 hover:text-white transition-colors">Attrazioni</a></li>
+<li><a href="#restaurants" class="text-gray-400 hover:text-white transition-colors">Dove Mangiare</a></li>
+<li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contatti</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Lingue</h4>
+<ul class="space-y-2">
+<li><a href="#" class="text-white font-medium">Italiano</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">English</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Deutsch</a></li>
+<li><a href="#" class="text-gray-400 hover:text-white transition-colors">Français</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-4">Orari</h4>
+<ul class="space-y-2">
+<li class="text-gray-400">Check-in: 15:00 - 20:00</li>
+<li class="text-gray-400">Check-out: entro le 11:00</li>
+<li class="text-gray-400 mt-4">Per emergenze:</li>
+<li class="text-gray-400">+39 035 123 4567</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+<p data-i18n="footerCopy" class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Sant'Alessandro 17. Tutti i diritti riservati.</p>
+<div class="flex space-x-4 text-sm text-gray-400">
+<a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+<a href="#" class="hover:text-white transition-colors">Termini e Condizioni</a>
+<a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script id="attractions-toggle">
+document.addEventListener('DOMContentLoaded', function() {
+const showMoreBtn = document.querySelector('a[href="#"][class*="border-primary"]');
+if (showMoreBtn) {
+showMoreBtn.addEventListener('click', function(e) {
+e.preventDefault();
+const attractionsSection = document.getElementById('attractions');
+if (attractionsSection) {
+const headerHeight = document.getElementById('header')?.offsetHeight || 0;
+const targetPosition = attractionsSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
+}
+});
+}
+});
+</script>
+<script id="header-scroll">
+document.addEventListener('DOMContentLoaded', function() {
+const header = document.getElementById('header');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 100) {
+header.classList.add('header-scrolled');
+} else {
+header.classList.remove('header-scrolled');
+}
+});
+});
+</script>
+<script id="mobile-menu-toggle">
+document.addEventListener('DOMContentLoaded', function() {
+const mobileNavButton = document.getElementById('mobile-nav-button');
+const closeMenuButton = document.getElementById('close-menu');
+const mobileMenu = document.getElementById('mobile-menu');
+const hamburger = document.querySelector('.hamburger');
+mobileNavButton.addEventListener('click', function() {
+mobileMenu.classList.add('open');
+hamburger.classList.add('open');
+});
+closeMenuButton.addEventListener('click', function() {
+mobileMenu.classList.remove('open');
+hamburger.classList.remove('open');
+});
+// Close mobile menu when clicking on a link
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.remove('open');
+hamburger.classList.remove('open');
+});
+});
+});
+</script>
+<script id="language-dropdown">
+document.addEventListener('DOMContentLoaded', function() {
+  const languageSelector  = document.querySelector('.language-selector');
+  const languageDropdown  = document.querySelector('.language-dropdown');
+  const langLinks         = languageDropdown.querySelectorAll('a');
+  const currentLang       = languageSelector.querySelector('span');
+
+  const translations = {
+    navHome:        { it: 'Home', en: 'Home', es: 'Inicio', de: 'Start' },
+    navAttractions: { it: 'Attrazioni', en: 'Attractions', es: 'Atracciones', de: 'Attraktionen' },
+    navRestaurants: { it: 'Dove Mangiare', en: 'Where to Eat', es: 'Dónde Comer', de: 'Wo essen' },
+    navContact:     { it: 'Contatti', en: 'Contact', es: 'Contacto', de: 'Kontakt' },
+    heroTitle:      { it: "Benvenuti a Sant'Alessandro 17", en: "Welcome to Sant'Alessandro 17", es: "Bienvenidos a Sant'Alessandro 17", de: "Willkommen bei Sant'Alessandro 17" },
+    heroSubtitle:   { it: "La tua casa vacanze nel cuore di Bergamo, dove comfort e storia si incontrano per un'esperienza indimenticabile.", en: 'Your holiday home in the heart of Bergamo, where comfort and history meet for an unforgettable experience.', es: 'Tu casa vacacional en el corazón de Bérgamo, donde la comodidad y la historia se unen para una experiencia inolvidable.', de: 'Dein Feriendomizil im Herzen von Bergamo, wo Komfort und Geschichte sich zu einem unvergesslichen Erlebnis verbinden.' },
+    heroBook:       { it: 'Prenota ora', en: 'Book now', es: 'Reserva ahora', de: 'Jetzt buchen' },
+    heroDiscover:   { it: 'Scopri Bergamo', en: 'Discover Bergamo', es: 'Descubre Bérgamo', de: 'Entdecke Bergamo' },
+    aboutTitle:     { it: 'La Nostra Casa Vacanze', en: 'Our Holiday Home', es: 'Nuestra Casa Vacacional', de: 'Unser Ferienhaus' },
+    aboutSubtitle:  { it: 'Un rifugio elegante e confortevole nel centro storico di Bergamo, perfetto per esplorare le meraviglie della città.', en: 'An elegant and comfortable retreat in Bergamo old town, perfect for exploring the city.', es: 'Un refugio elegante y cómodo en el centro histórico de Bérgamo, perfecto para explorar la ciudad.', de: 'Eine elegante und komfortable Unterkunft in der Altstadt von Bergamo, ideal um die Stadt zu entdecken.' },
+    aboutP1:        { it: "Situato in una posizione privilegiata in Via Sant'Alessandro 17, il nostro appartamento offre un'esperienza di soggiorno unica, combinando il fascino storico di Bergamo con tutti i comfort moderni che potresti desiderare.", en: 'Located at Via Sant\'Alessandro 17, our apartment combines Bergamo\'s historic charm with modern comforts.', es: 'Situado en Via Sant\'Alessandro 17, nuestro apartamento combina el encanto histórico de Bérgamo con todas las comodidades modernas.', de: 'In der Via Sant\'Alessandro 17 gelegen, verbindet unsere Wohnung historischen Charme mit modernem Komfort.' },
+    aboutP2:        { it: "Completamente ristrutturato nel 2023, l'appartamento è stato arredato con cura per garantire il massimo comfort durante il vostro soggiorno, mantenendo al contempo l'eleganza e lo stile tipico italiano.", en: 'Completely renovated in 2023, the apartment offers maximum comfort while keeping the typical Italian style.', es: 'Completamente renovado en 2023, el apartamento ofrece el máximo confort manteniendo el estilo italiano.', de: 'Komplett 2023 renoviert bietet die Wohnung höchsten Komfort und behält dabei den typisch italienischen Stil.' },
+    feat1Title:     { it: '2 Camere da letto', en: '2 Bedrooms', es: '2 Habitaciones', de: '2 Schlafzimmer' },
+    feat1Desc:      { it: 'Spaziose e confortevoli', en: 'Spacious and comfortable', es: 'Espaciosas y cómodas', de: 'Geräumig und komfortabel' },
+    feat2Title:     { it: 'Wi-Fi gratuito', en: 'Free Wi-Fi', es: 'Wi-Fi gratis', de: 'Kostenloses WLAN' },
+    feat2Desc:      { it: 'Connessione veloce', en: 'Fast connection', es: 'Conexión rápida', de: 'Schnelle Verbindung' },
+    feat3Title:     { it: 'Smart TV', en: 'Smart TV', es: 'Smart TV', de: 'Smart-TV' },
+    feat3Desc:      { it: 'Con Netflix incluso', en: 'With Netflix included', es: 'Con Netflix incluido', de: 'Mit Netflix inklusive' },
+    feat4Title:     { it: 'Cucina completa', en: 'Full kitchen', es: 'Cocina completa', de: 'Voll ausgestattete Küche' },
+    feat4Desc:      { it: 'Completamente attrezzata', en: 'Fully equipped', es: 'Totalmente equipada', de: 'Voll ausgestattet' },
+    aboutBtn:       { it: 'Verifica disponibilità', en: 'Check availability', es: 'Verificar disponibilidad', de: 'Verfügbarkeit prüfen' },
+    attractionsTitle:{ it: 'Scopri Bergamo', en: 'Discover Bergamo', es: 'Descubre Bérgamo', de: 'Entdecke Bergamo' },
+    attractionsSubtitle:{ it: 'Esplora le meraviglie di questa città storica, tutte a pochi passi dal nostro appartamento.', en: 'Explore the wonders of this historic city, all just a short walk from our apartment.', es: 'Explora las maravillas de esta ciudad histórica, todas a pocos pasos de nuestro apartamento.', de: 'Erkunde die Wunder dieser historischen Stadt, nur wenige Schritte von unserer Wohnung entfernt.' },
+    attr1Title:     { it: 'Città Alta', en: 'Città Alta', es: 'Città Alta', de: 'Città Alta' },
+    attr1Desc:      { it: 'Il centro storico medievale di Bergamo, circondato da mura veneziane e ricco di monumenti storici.', en: 'Bergamo\'s medieval old town surrounded by Venetian walls and rich in monuments.', es: 'El centro histórico medieval de Bérgamo, rodeado de murallas venecianas y lleno de monumentos.', de: 'Die mittelalterliche Altstadt von Bergamo, umgeben von venezianischen Mauern und reich an Sehenswürdigkeiten.' },
+    attr1Dist:      { it: '15 minuti a piedi', en: '15 minutes walk', es: '15 minutos a pie', de: '15 Minuten zu Fuß' },
+    attr2Title:     { it: 'Basilica di Santa Maria Maggiore', en: 'Basilica di Santa Maria Maggiore', es: 'Basílica de Santa María Maggiore', de: 'Basilika Santa Maria Maggiore' },
+    attr2Desc:      { it: "Una delle chiese più belle d'Italia con interni riccamente decorati e affreschi mozzafiato.", en: 'One of Italy\'s most beautiful churches with richly decorated interiors and stunning frescoes.', es: 'Una de las iglesias más bellas de Italia con interiores ricamente decorados y frescos impresionantes.', de: 'Eine der schönsten Kirchen Italiens mit reich verzierten Innenräumen und atemberaubenden Fresken.' },
+    attr2Dist:      { it: '20 minuti a piedi', en: '20 minutes walk', es: '20 minutos a pie', de: '20 Minuten zu Fuß' },
+    attr3Title:     { it: 'Cappella Colleoni', en: 'Cappella Colleoni', es: 'Capilla Colleoni', de: 'Cappella Colleoni' },
+    attr3Desc:      { it: 'Capolavoro rinascimentale con una facciata riccamente decorata e interni artistici di grande valore.', en: 'Renaissance masterpiece with richly decorated façade and valuable artworks inside.', es: 'Obra maestra del Renacimiento con una fachada ricamente decorada e interiores artísticos de gran valor.', de: 'Renaissance-Meisterwerk mit reich verzierter Fassade und wertvoller Innenausstattung.' },
+    attr3Dist:      { it: '20 minuti a piedi', en: '20 minutes walk', es: '20 minutos a pie', de: '20 Minuten zu Fuß' },
+    attr4Title:     { it: 'Piazza Vecchia', en: 'Piazza Vecchia', es: 'Piazza Vecchia', de: 'Piazza Vecchia' },
+    attr4Desc:      { it: "Il cuore pulsante della Città Alta, circondata da edifici storici e caffè all'aperto.", en: 'The beating heart of the upper town, surrounded by historic buildings and outdoor cafés.', es: 'El corazón palpitante de la Ciudad Alta, rodeado de edificios históricos y cafés al aire libre.', de: 'Das pulsierende Herz der Oberstadt, umgeben von historischen Gebäuden und Straßencafés.' },
+    attr4Dist:      { it: '18 minuti a piedi', en: '18 minutes walk', es: '18 minutos a pie', de: '18 Minuten zu Fuß' },
+    showAttrBtn:    { it: 'Scopri altre attrazioni', en: 'See more attractions', es: 'Ver más atracciones', de: 'Weitere Attraktionen' },
+    restaurantsTitle:{ it: 'Dove Mangiare', en: 'Where to Eat', es: 'Dónde Comer', de: 'Wo essen' },
+    restaurantsSubtitle:{ it: 'Scopri i migliori ristoranti e caffè nei dintorni del nostro appartamento.', en: 'Discover the best restaurants and cafes near our apartment.', es: 'Descubre los mejores restaurantes y cafés cerca de nuestro apartamento.', de: 'Entdecke die besten Restaurants und Cafés in der Nähe unserer Wohnung.' },
+    filterAll:      { it: 'Tutti', en: 'All', es: 'Todos', de: 'Alle' },
+    filterItalian:  { it: 'Cucina Italiana', en: 'Italian Cuisine', es: 'Cocina italiana', de: 'Italienische Küche' },
+    filterPizza:    { it: 'Pizzerie', en: 'Pizzerias', es: 'Pizzerías', de: 'Pizzerien' },
+    filterCafe:     { it: 'Caffè & Pasticcerie', en: 'Cafes & Pastry Shops', es: 'Cafés y Pastelerías', de: 'Cafés & Konditoreien' },
+    filterIntl:     { it: 'Cucina Internazionale', en: 'International Cuisine', es: 'Cocina internacional', de: 'Internationale Küche' },
+    rest1Title:     { it: "Trattoria Sant'Ambrogio", en: "Trattoria Sant'Ambrogio", es: "Trattoria Sant'Ambrogio", de: "Trattoria Sant'Ambrogio" },
+    rest1Desc:      { it: 'Autentica cucina bergamasca in un ambiente accogliente e familiare. Specialità: casoncelli alla bergamasca.', en: 'Authentic Bergamo cuisine in a cozy, family atmosphere. Specialty: casoncelli alla bergamasca.', es: 'Auténtica cocina de Bérgamo en un ambiente acogedor y familiar. Especialidad: casoncelli a la bergamasca.', de: 'Authentische Bergamo-Küche in familiärer Atmosphäre. Spezialität: Casoncelli alla bergamasca.' },
+    rest1Dist:      { it: '5 minuti a piedi', en: '5 minutes walk', es: '5 minutos a pie', de: '5 Minuten zu Fuß' },
+    rest2Title:     { it: 'Pizzeria Napoli', en: 'Pizzeria Napoli', es: 'Pizzería Napoli', de: 'Pizzeria Napoli' },
+    rest2Desc:      { it: 'Autentica pizza napoletana cotta in forno a legna. Impasto leggero e ingredienti di prima qualità.', en: 'Authentic Neapolitan pizza baked in a wood oven. Light dough and top quality ingredients.', es: 'Auténtica pizza napolitana cocinada en horno de leña. Masa ligera e ingredientes de primera calidad.', de: 'Authentische neapolitanische Pizza aus dem Holzofen. Leichter Teig und beste Zutaten.' },
+    rest2Dist:      { it: '8 minuti a piedi', en: '8 minutes walk', es: '8 minutos a pie', de: '8 Minuten zu Fuß' },
+    rest3Title:     { it: 'Caffè Centrale', en: 'Caffè Centrale', es: 'Caffè Centrale', de: 'Caffè Centrale' },
+    rest3Desc:      { it: 'Elegante caffetteria con pasticceria artigianale. Ottimo per colazioni e pause pomeridiane.', en: 'Elegant coffee shop with handmade pastries. Great for breakfasts and afternoon breaks.', es: 'Elegante cafetería con pastelería artesanal. Ideal para desayunos y pausas de la tarde.', de: 'Elegantes Café mit hausgemachter Konditorei. Perfekt für Frühstück und Nachmittags­pausen.' },
+    rest3Dist:      { it: '3 minuti a piedi', en: '3 minutes walk', es: '3 minutos a pie', de: '3 Minuten zu Fuß' },
+    rest4Title:     { it: "Ristorante Colleoni & Dell'Angelo", en: "Ristorante Colleoni & Dell'Angelo", es: "Ristorante Colleoni & Dell'Angelo", de: "Ristorante Colleoni & Dell'Angelo" },
+    rest4Desc:      { it: 'Ristorante gourmet con piatti della tradizione rivisitati in chiave moderna. Vista panoramica.', en: 'Gourmet restaurant with traditional dishes revisited in a modern way. Panoramic view.', es: 'Restaurante gourmet con platos tradicionales reinterpretados de forma moderna. Vista panorámica.', de: 'Gourmetrestaurant mit modern interpretierten Traditionsgerichten. Panoramablick.' },
+    rest4Dist:      { it: '15 minuti a piedi', en: '15 minutes walk', es: '15 minutos a pie', de: '15 Minuten zu Fuß' },
+    rest5Title:     { it: 'Enoteca Zanini', en: 'Enoteca Zanini', es: 'Enoteca Zanini', de: 'Enoteca Zanini' },
+    rest5Desc:      { it: 'Enoteca con vasta selezione di vini locali e nazionali. Ottimi taglieri di salumi e formaggi.', en: 'Wine bar with a large selection of local and national wines. Great meat and cheese boards.', es: 'Enoteca con amplia selección de vinos locales y nacionales. Excelentes tablas de embutidos y quesos.', de: 'Weinbar mit großer Auswahl an lokalen und nationalen Weinen. Hervorragende Aufschnitt- und Käseplatten.' },
+    rest5Dist:      { it: '7 minuti a piedi', en: '7 minutes walk', es: '7 minutos a pie', de: '7 Minuten zu Fuß' },
+    rest6Title:     { it: 'Gelateria Antica', en: 'Gelateria Antica', es: 'Gelateria Antica', de: 'Gelateria Antica' },
+    rest6Desc:      { it: 'Gelato artigianale preparato con ingredienti freschi e naturali. Gusti classici e creativi.', en: 'Artisanal gelato made with fresh natural ingredients. Classic and creative flavours.', es: 'Helado artesanal elaborado con ingredientes frescos y naturales. Sabores clásicos y creativos.', de: 'Hausgemachtes Gelato aus frischen Zutaten. Klassische und kreative Sorten.' },
+    rest6Dist:      { it: '6 minuti a piedi', en: '6 minutes walk', es: '6 minutos a pie', de: '6 Minuten zu Fuß' },
+    showRestBtn:    { it: 'Scopri altri ristoranti', en: 'See more restaurants', es: 'Ver más restaurantes', de: 'Weitere Restaurants' },
+    contactTitle:   { it: 'Contattaci', en: 'Contact Us', es: 'Contáctanos', de: 'Kontaktieren Sie uns' },
+    contactSubtitle:{ it: 'Hai domande o vuoi prenotare il tuo soggiorno? Siamo qui per aiutarti.', en: 'Have questions or want to book your stay? We are here to help.', es: '¿Tienes preguntas o quieres reservar tu estancia? Estamos aquí para ayudarte.', de: 'Haben Sie Fragen oder möchten Sie buchen? Wir helfen gerne.' },
+    contactBtn:     { it: 'Invia messaggio', en: 'Send message', es: 'Enviar mensaje', de: 'Nachricht senden' },
+    infoTitle:      { it: 'Informazioni', en: 'Information', es: 'Información', de: 'Informationen' },
+    bookTitle:      { it: 'Prenota su', en: 'Book on', es: 'Reserva en', de: 'Buchen über' },
+    footerCopy:     { it: '&copy; 2025 Sant\'Alessandro 17. Tutti i diritti riservati.', en: '&copy; 2025 Sant\'Alessandro 17. All rights reserved.', es: '&copy; 2025 Sant\'Alessandro 17. Todos los derechos reservados.', de: '&copy; 2025 Sant\'Alessandro 17. Alle Rechte vorbehalten.' }
+  };
+
+  function setLanguage(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[key]) {
+        el.innerHTML = translations[key][lang];
+      }
+    });
+    currentLang.textContent = lang.toUpperCase();
+  }
+
+  const savedLang = localStorage.getItem('selectedLang') || 'it';
+  setLanguage(savedLang);
+
+  languageSelector.addEventListener('click', function(e){
+    e.preventDefault();
+    languageDropdown.classList.toggle('hidden');
+  });
+
+  langLinks.forEach(link => {
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      const lang = this.getAttribute('data-lang') || this.textContent.trim().toLowerCase();
+      localStorage.setItem('selectedLang', lang);
+      setLanguage(lang);
+      languageDropdown.classList.add('hidden');
+    });
+  });
+
+  document.addEventListener('click', function(e){
+    if(!languageSelector.contains(e.target)){
+      languageDropdown.classList.add('hidden');
+    }
+  });
+});
+</script>
+<script id="smooth-scroll">
+document.addEventListener('DOMContentLoaded', function() {
+const links = document.querySelectorAll('a[href^="#"]');
+links.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+const headerHeight = document.getElementById('header').offsetHeight;
+const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+</body>
+</html>
