@@ -168,6 +168,7 @@ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 </div>
 </button>
 <div class="language-dropdown hidden absolute right-0 mt-2 w-24 bg-white shadow-lg rounded-button overflow-hidden z-10">
+<a href="#" data-lang="it" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors">IT</a>
 <a href="#" data-lang="en" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors">EN</a>
 <a href="#" data-lang="es" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors">ES</a>
 <a href="#" data-lang="de" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors">DE</a>
@@ -201,29 +202,29 @@ box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 <div class="pt-4 border-t border-gray-200">
 <p class="text-sm text-gray-500 mb-2">Lingua</p>
 <div class="flex flex-col space-y-2">
-<a href="#" class="flex items-center space-x-2 text-primary">
+<a href="#" data-lang="it" class="flex items-center space-x-2 text-primary">
 <span class="w-5 h-5 flex items-center justify-center">
 <i class="ri-check-line"></i>
 </span>
 <span>Italiano</span>
 </a>
-<a href="#" class="flex items-center space-x-2 text-gray-800 hover:text-primary transition-colors">
+<a href="#" data-lang="en" class="flex items-center space-x-2 text-gray-800 hover:text-primary transition-colors">
 <span class="w-5 h-5 flex items-center justify-center opacity-0">
 <i class="ri-check-line"></i>
 </span>
 <span>English</span>
 </a>
-<a href="#" class="flex items-center space-x-2 text-gray-800 hover:text-primary transition-colors">
+<a href="#" data-lang="es" class="flex items-center space-x-2 text-gray-800 hover:text-primary transition-colors">
+<span class="w-5 h-5 flex items-center justify-center opacity-0">
+<i class="ri-check-line"></i>
+</span>
+<span>Español</span>
+</a>
+<a href="#" data-lang="de" class="flex items-center space-x-2 text-gray-800 hover:text-primary transition-colors">
 <span class="w-5 h-5 flex items-center justify-center opacity-0">
 <i class="ri-check-line"></i>
 </span>
 <span>Deutsch</span>
-</a>
-<a href="#" class="flex items-center space-x-2 text-gray-800 hover:text-primary transition-colors">
-<span class="w-5 h-5 flex items-center justify-center opacity-0">
-<i class="ri-check-line"></i>
-</span>
-<span>Français</span>
 </a>
 </div>
 </div>
@@ -829,6 +830,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const languageDropdown  = document.querySelector('.language-dropdown');
   const langLinks         = languageDropdown.querySelectorAll('a');
   const currentLang       = languageSelector.querySelector('span');
+  const mobileLangLinks   = document.querySelectorAll('#mobile-menu a[data-lang]');
 
   const translations = {
     navHome:        { it: 'Home', en: 'Home', es: 'Inicio', de: 'Start' },
@@ -901,6 +903,19 @@ document.addEventListener('DOMContentLoaded', function() {
     footerCopy:     { it: '&copy; 2025 Sant\'Alessandro 17. Tutti i diritti riservati.', en: '&copy; 2025 Sant\'Alessandro 17. All rights reserved.', es: '&copy; 2025 Sant\'Alessandro 17. Todos los derechos reservados.', de: '&copy; 2025 Sant\'Alessandro 17. Alle Rechte vorbehalten.' }
   };
 
+  function updateMobileLangUI(lang) {
+    mobileLangLinks.forEach(link => {
+      const iconWrapper = link.querySelector('i').parentElement;
+      if (link.getAttribute('data-lang') === lang) {
+        link.classList.add('text-primary');
+        iconWrapper.classList.remove('opacity-0');
+      } else {
+        link.classList.remove('text-primary');
+        iconWrapper.classList.add('opacity-0');
+      }
+    });
+  }
+
   function setLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -909,6 +924,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     currentLang.textContent = lang.toUpperCase();
+    updateMobileLangUI(lang);
   }
 
   const savedLang = localStorage.getItem('selectedLang') || 'it';
@@ -926,6 +942,15 @@ document.addEventListener('DOMContentLoaded', function() {
       localStorage.setItem('selectedLang', lang);
       setLanguage(lang);
       languageDropdown.classList.add('hidden');
+    });
+  });
+
+  mobileLangLinks.forEach(link => {
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      const lang = this.getAttribute('data-lang');
+      localStorage.setItem('selectedLang', lang);
+      setLanguage(lang);
     });
   });
 
